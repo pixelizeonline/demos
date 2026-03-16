@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Chefe da Bolsa | Domine o mercado financeiro</title>
+    <meta name="description" content="Aprenda a construir patrimônio com estratégia, inteligência e disciplina. Plataforma premium de inteligência financeira.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    </script>
+</head>
+<body>
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+
+    <!-- Navigation -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L2 22H22L12 2Z" stroke="url(#paint0_linear)" stroke-width="2" stroke-linejoin="round"/>
+                    <path d="M12 10L7 20H17L12 10Z" fill="url(#paint1_linear)"/>
+                    <defs>
+                        <linearGradient id="paint0_linear" x1="12" y1="2" x2="12" y2="22" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#00E5FF"/>
+                            <stop offset="1" stop-color="#7928CA"/>
+                        </linearGradient>
+                        <linearGradient id="paint1_linear" x1="12" y1="10" x2="12" y2="20" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#00E5FF" stop-opacity="0.5"/>
+                            <stop offset="1" stop-color="#7928CA" stop-opacity="0.5"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span>O Chefe da Bolsa</span>
+            </div>
+            <nav class="nav-links">
+                <a href="#solucao">Método</a>
+                <a href="#simulador">Simulador</a>
+                <a href="#comunidade">Comunidade</a>
+                <button id="theme-toggle" class="btn-theme" aria-label="Toggle Theme">
+                    <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                </button>
+                <a href="#reserva" class="btn btn-sm btn-outline">Área do Aluno</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg">
+            <img src="figures/hero.jpg" alt="Background" class="hero-image">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="container hero-content">
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                Novo ciclo de mercado iniciado
+            </div>
+            <h1 class="hero-title">
+                Domine o jogo da <span class="gradient-text">bolsa de valores.</span>
+            </h1>
+            <p class="hero-subtitle">
+                Aprenda a construir patrimônio real com estratégia, inteligência e disciplina. Não é sobre day trade, é sobre criar riqueza geracional.
+            </p>
+            <div class="hero-actions">
+                <a href="#reserva" class="btn btn-primary">Reservar vaga <span class="arrow">→</span></a>
+                <a href="#video" class="btn btn-secondary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                    Assistir apresentação
+                </a>
+            </div>
+            
+            <div class="hero-ui-mockup">
+                <div class="mockup-header">
+                    <div class="dots"><span></span><span></span><span></span></div>
+                    <div class="mockup-title">ochefedabolsa / dashboard</div>
+                </div>
+                <div class="mockup-body">
+                    <div class="mockup-chart-container">
+                        <svg class="mockup-chart" viewBox="0 0 500 150" preserveAspectRatio="none">
+                            <path class="chart-line" d="M0,150 C50,130 100,140 150,100 C200,60 250,80 300,50 C350,20 400,40 450,10 L500,0" fill="none" stroke="url(#chart-gradient)" stroke-width="4" stroke-linecap="round"/>
+                            <path class="chart-area" d="M0,150 C50,130 100,140 150,100 C200,60 250,80 300,50 C350,20 400,40 450,10 L500,0 L500,150 L0,150 Z" fill="url(#area-gradient)"/>
+                            <defs>
+                                <linearGradient id="chart-gradient" x1="0" y1="0" x2="1" y2="0">
+                                    <stop offset="0%" stop-color="#00E5FF"/>
+                                    <stop offset="100%" stop-color="#7928CA"/>
+                                </linearGradient>
+                                <linearGradient id="area-gradient" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stop-color="#7928CA" stop-opacity="0.3"/>
+                                    <stop offset="100%" stop-color="#00E5FF" stop-opacity="0.0"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <div class="chart-point">
+                            <div class="point-tooltip"><div>Patrimônio</div>R$ 1.250.430,00</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Ticker -->
+    <div class="ticker-wrapper">
+        <div class="ticker-content" id="market-ticker">
+            <!-- Populated by JS -->
+        </div>
+        <div class="ticker-content ticker-clone" id="market-ticker-clone">
+            <!-- Populated by JS -->
+        </div>
+    </div>
+
+    <!-- Problem Section -->
+    <section class="section problem-section" id="problema">
+        <div class="container">
+            <div class="problem-grid">
+                <div class="problem-content reveal">
+                    <h2 class="section-title">O sistema quer você dependente.</h2>
+                    <p class="section-desc">Brasileiros não recebem educação financeira. O sistema bancário lucra com a sua ignorância, mantendo seu dinheiro na poupança onde a inflação destrói seu patrimônio lentamente.</p>
+                    <p class="section-desc">Poucos aprendem a investir corretamente. A maioria cai em armadilhas de dinheiro fácil ou desiste no primeiro cenário de queda.</p>
+                    <div class="stat-box">
+                        <div class="stat-number">95%</div>
+                        <div class="stat-text">Dos novos investidores perdem dinheiro por falta de <strong>estratégia e preparo emocional</strong>.</div>
+                    </div>
+                </div>
+                <div class="problem-visual reveal right">
+                    <img src="figures/trader.jpg" alt="Profissional do mercado" class="rounded-image shadow-premium">
+                    <div class="glass-card floating-card-1">
+                        <div class="card-icon error">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        </div>
+                        <div class="card-info">
+                            <div class="card-title">Poupança</div>
+                            <div class="card-value negative">-6.2% a.a. real</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="section solution-section" id="solucao">
+        <div class="container">
+            <div class="section-header center reveal">
+                <h2 class="section-title">O <span class="gradient-text">Método</span></h2>
+                <p class="section-desc">Uma abordagem sistemática e institucional para o investidor pessoa física.</p>
+            </div>
+            
+            <div class="cards-grid">
+                <div class="feature-card reveal delay-1">
+                    <div class="card-glow"></div>
+                    <div class="card-icon-wrapper">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                    </div>
+                    <h3>Estratégia de Investimento</h3>
+                    <p>Alocação inteligente baseada em ciclos econômicos, não em dicas de internet. Saiba exatamente o que fazer em qualquer cenário.</p>
+                </div>
+                <div class="feature-card reveal delay-2">
+                    <div class="card-glow"></div>
+                    <div class="card-icon-wrapper">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg>
+                    </div>
+                    <h3>Gestão de Risco</h3>
+                    <p>Proteja seu capital antes de buscar lucros. Aprenda técnicas avançadas de hedge e diversificação assimétrica.</p>
+                </div>
+                <div class="feature-card reveal delay-3">
+                    <div class="card-glow"></div>
+                    <div class="card-icon-wrapper">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                    </div>
+                    <h3>Análise de Ativos</h3>
+                    <p>Filtre o ruído. Avalie balanços, vantagens competitivas e assimetria de preços como um analista profissional.</p>
+                </div>
+                <div class="feature-card reveal delay-4">
+                    <div class="card-glow"></div>
+                    <div class="card-icon-wrapper">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+                    </div>
+                    <h3>Renda Passiva</h3>
+                    <p>Construa uma máquina de juros compostos com dividendos crescentes que pagam suas contas independentemente de você trabalhar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Simulator -->
+    <section class="section simulator-section" id="simulador">
+        <div class="container">
+            <div class="simulator-wrapper glass-panel reveal">
+                <div class="simulator-content">
+                    <h2 class="section-title">Simulador de <span class="gradient-text">Patrimônio</span></h2>
+                    <p class="section-desc">Descubra o poder exponencial dos juros compostos ao longo do tempo. Insira seus dados abaixo:</p>
+                    
+                    <div class="form-group">
+                        <label for="capital">Capital Inicial (R$)</label>
+                        <input type="number" id="capital" value="10000" class="input-modern">
+                    </div>
+                    <div class="form-group">
+                        <label for="aporte">Aporte Mensal (R$)</label>
+                        <input type="number" id="aporte" value="1000" class="input-modern">
+                    </div>
+                    <div class="form-range-group">
+                        <div class="range-header">
+                            <label for="tempo">Tempo: <span id="tempo-val">15</span> anos</label>
+                        </div>
+                        <input type="range" id="tempo" min="1" max="40" value="15" class="range-modern">
+                    </div>
+                    <div class="form-range-group">
+                        <div class="range-header">
+                            <label for="taxa">Taxa Anual: <span id="taxa-val">12</span>%</label>
+                        </div>
+                        <input type="range" id="taxa" min="2" max="25" value="12" step="0.5" class="range-modern">
+                    </div>
+                </div>
+                <div class="simulator-results">
+                    <div class="result-card">
+                        <div class="result-label">Patrimônio Final</div>
+                        <div class="result-value gradient-text" id="resultado-patrimonio">R$ 0,00</div>
+                    </div>
+                    <div class="result-card secondary">
+                        <div class="result-label">Renda Passiva Mensal Estimada</div>
+                        <div class="result-value" id="resultado-renda">R$ 0,00</div>
+                    </div>
+                    <div class="simulator-chart" id="sim-chart-container">
+                        <!-- Chart generated via JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header center reveal">
+                <h2 class="section-title">Nossos Investidores</h2>
+                <p class="section-desc">Resultados reais de quem aplica o método com disciplina.</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card reveal">
+                    <div class="stars">★★★★★</div>
+                    <p class="quote">"Sempre tive medo da bolsa. Hoje, tenho uma carteira estruturada, durmo tranquilo e vejo meus dividendos aumentarem todos os meses."</p>
+                    <div class="author">
+                        <div class="author-avatar" style="background: linear-gradient(135deg, #00E5FF, #7928CA)">MC</div>
+                        <div>
+                            <div class="author-name">Marcelo Costa</div>
+                            <div class="author-role">Engenheiro Software</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal delay-1">
+                    <div class="stars">★★★★★</div>
+                    <p class="quote">"O simulador abriu meus olhos, mas o método mudou minha vida. A didática é absurda, nível Vale do Silício total."</p>
+                    <div class="author">
+                        <div class="author-avatar" style="background: linear-gradient(135deg, #ff0080, #7928CA)">AS</div>
+                        <div>
+                            <div class="author-name">Amanda Silva</div>
+                            <div class="author-role">Empreendedora</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal delay-2">
+                    <div class="stars">★★★★★</div>
+                    <p class="quote">"Chega de dicas de influenciador. Aprendi a analisar os próprios balanços e gerenciar risco assimetricamente. Excelente plataforma."</p>
+                    <div class="author">
+                        <div class="author-avatar" style="background: linear-gradient(135deg, #111, #333)">RF</div>
+                        <div>
+                            <div class="author-name">Ricardo Fontes</div>
+                            <div class="author-role">Médico</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community -->
+    <section class="section community-section" id="comunidade">
+        <div class="container center reveal">
+            <h2 class="section-title">Não encare o mercado sozinho</h2>
+            <p class="section-desc max-w-lg mx-auto">Faça parte do ecossistema completo para investidores de alta performance. Networking, dados e suporte contínuo.</p>
+            
+            <div class="community-features">
+                <div class="c-feature">
+                    <div class="c-icon">🌐</div>
+                    <span>Comunidade Exclusiva</span>
+                </div>
+                <div class="c-feature">
+                    <div class="c-icon">👨‍🏫</div>
+                    <span>Mentoria Especializada</span>
+                </div>
+                <div class="c-feature">
+                    <div class="c-icon">📊</div>
+                    <span>Atualizações de Mercado</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservation Form -->
+    <section class="section reservation-section" id="reserva">
+        <div class="container">
+            <div class="reservation-grid glass-panel reveal">
+                <div class="reservation-info">
+                    <div class="pulse-indicator">
+                        <span class="pulse-ring"></span>
+                        <span class="pulse-core"></span> Vagas Limitadas
+                    </div>
+                    <h2 class="section-title">Dê o primeiro passo.</h2>
+                    <p>Junte-se ao grupo seleto de investidores que dominam o mercado com método. Reserve sua vaga na próxima turma.</p>
+                    
+                    <div class="scarcity-timer" id="timer">
+                        <div class="time-block">
+                            <span class="time-num" id="t-hours">05</span>
+                            <span class="time-label">Horas</span>
+                        </div>
+                        <span class="colon">:</span>
+                        <div class="time-block">
+                            <span class="time-num" id="t-mins">42</span>
+                            <span class="time-label">Min</span>
+                        </div>
+                        <span class="colon">:</span>
+                        <div class="time-block">
+                            <span class="time-num" id="t-secs">18</span>
+                            <span class="time-label">Seg</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="reservation-form">
+                    <form id="lead-form">
+                        <div class="form-group">
+                            <label>Nome Completo</label>
+                            <input type="text" class="input-modern" placeholder="Seu nome" required>
+                        </div>
+                        <div class="form-group">
+                            <label>E-mail Corporativo ou Pessoal</label>
+                            <input type="email" class="input-modern" placeholder="exemplo@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label>WhatsApp</label>
+                            <input type="tel" class="input-modern" placeholder="(00) 00000-0000" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Capital inicial aproximado</label>
+                            <select class="input-modern" required>
+                                <option value="" disabled selected>Selecione uma opção</option>
+                                <option value="1">Até R$ 10.000</option>
+                                <option value="2">R$ 10.000 a R$ 50.000</option>
+                                <option value="3">R$ 50.000 a R$ 100.000</option>
+                                <option value="4">Mais de R$ 100.000</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Aplicar para Vaga <span class="arrow">→</span></button>
+                        <p class="form-footer">Seus dados estão seguros. Ao aplicar, você concorda com nossos termos de serviço.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <div class="logo">
+                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L2 22H22L12 2Z" stroke-width="2" stroke="currentColor" stroke-linejoin="round"/>
+                        <path d="M12 10L7 20H17L12 10Z" fill="currentColor" fill-opacity="0.3"/>
+                    </svg>
+                    <span>O Chefe da Bolsa</span>
+                </div>
+                <p>Educação financeira avançada para a construção de patrimônio real. Uma plataforma com nível de excelência institucional.</p>
+            </div>
+            <div class="footer-links">
+                <div class="link-group">
+                    <h4>Produto</h4>
+                    <a href="#">Simulador</a>
+                    <a href="#">Metodologia</a>
+                    <a href="#">Avaliações</a>
+                </div>
+                <div class="link-group">
+                    <h4>Plataforma</h4>
+                    <a href="#">Login</a>
+                    <a href="#">Suporte</a>
+                    <a href="#">Termos</a>
+                </div>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 O Chefe da Bolsa. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
