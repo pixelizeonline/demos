@@ -1,4 +1,4 @@
-const CACHE_NAME = 'prospect-v2';
+const CACHE_NAME = 'prospect-v4';
 const urlsToCache = [
   './',
   './index.html',
