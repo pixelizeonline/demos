@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Prospect | Pixelize</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        :root {
+            --bg: #F3F4F6;
+            --surface: #FFFFFF;
+            --text-main: #111827;
+            --text-muted: #6B7280;
+            --primary: #25D366; /* WhatsApp Green */
+            --primary-hover: #128C7E;
+            --border: #E5E7EB;
+            --ring: rgba(37, 211, 102, 0.3);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: var(--surface);
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            width: 100%;
+            max-width: 480px;
+            text-align: center;
+        }
+
+        .icon-container {
+            width: 64px;
+            height: 64px;
+            background-color: #E8F9F0;
+            color: var(--primary);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin: 0 auto 24px auto;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 32px;
+            line-height: 1.5;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 24px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 1.1rem;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            outline: none;
+            transition: all 0.2s ease;
+            color: var(--text-main);
+            font-family: inherit;
+        }
+
+        input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px var(--ring);
+        }
+
+        /* Number Preview */
+        .preview {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 32px;
+            padding: 12px;
+            background-color: #F9FAFB;
+            border-radius: 8px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-family: monospace;
+            opacity: 0; /* Hidden by default */
+            transition: opacity 0.3s;
+        }
+        .preview.show {
+            opacity: 1;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 16px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn.disabled {
+            background-color: var(--border);
+            color: var(--text-muted);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .footer-note {
+            margin-top: 24px;
+            font-size: 0.8rem;
+            color: #9CA3AF;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="icon-container">
+            <i class="ph-fill ph-whatsapp-logo"></i>
+        </div>
+        <h1>Prospect Web</h1>
+        <p>Cole o número encontrado no Google (pode ter espaços, parênteses ou zero na frente). O link correto será gerado na hora.</p>
+
+        <div class="input-group">
+            <label for="phoneInput">Número do Cliente</label>
+            <input type="text" id="phoneInput" placeholder="(61) 99417-9199" autocomplete="off" autofocus>
+        </div>
+
+        <div class="preview" id="previewBox">
+            <i class="ph ph-link"></i> <span id="previewText">+55 ...</span>
+        </div>
+
+        <a href="#" id="actionBtn" class="btn disabled" target="_blank">
+            Abrir Conversa
+            <i class="ph-bold ph-arrow-right"></i>
+        </a>
+
+        <div class="footer-note">Desenvolvido por Pixelize</div>
+    </div>
+
+    <script>
+        const phoneInput = document.getElementById('phoneInput');
+        const actionBtn = document.getElementById('actionBtn');
+        const previewBox = document.getElementById('previewBox');
+        const previewText = document.getElementById('previewText');
+
+        // Logic to extract and format the phone number properly
+        function formatPhoneNumber(rawStr) {
+            // Keep only numbers
+            let clean = rawStr.replace(/\D/g, '');
+            
+            if (clean.length === 0) return ''; // Empty
+
+            // If it starts with 00, it might be an international call prefix (uncommon but possible in raw copy)
+            if (clean.startsWith('00')) {
+                clean = clean.substring(2);
+            }
+            
+            // If it starts with 0 and then DDD, standard in Brazil (e.g. 061994179199)
+            if (clean.startsWith('0') && clean.length > 9) {
+                clean = clean.substring(1);
+            }
+
+            // At this point we have standard DDD + Number (eg. 61994179199 -> length 10 or 11)
+            // Or maybe they typed 5561994179199 already!
+            if (!clean.startsWith('55') && (clean.length === 10 || clean.length === 11)) {
+                clean = '55' + clean;
+            }
+
+            return clean;
+        }
+
+        phoneInput.addEventListener('input', (e) => {
+            const raw = e.target.value;
+            const formatted = formatPhoneNumber(raw);
+
+            if (formatted.length >= 10) { // Valid enough to try (could be regular string 55... + 8 or 9 digits)
+                previewBox.classList.add('show');
+                previewText.textContent = `+${formatted}`;
+                actionBtn.classList.remove('disabled');
+                
+                // Set the exact web.whatsapp link requested by the user
+                actionBtn.href = `https://web.whatsapp.com/send/?phone=${formatted}`;
+            } else {
+                previewBox.classList.remove('show');
+                actionBtn.classList.add('disabled');
+                actionBtn.removeAttribute('href');
+            }
+        });
+
+        // Trigger 'input' logic on load to handle browser autocomplete
+        phoneInput.dispatchEvent(new Event('input'));
+    </script>
+</body>
+</html>
