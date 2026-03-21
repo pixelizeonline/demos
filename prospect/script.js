@@ -2,6 +2,7 @@
 const smartInput = document.getElementById('smartInput');
 const extractBtn = document.getElementById('extractBtn');
 const businessNameInput = document.getElementById('businessName');
+const businessNicheInput = document.getElementById('businessNiche');
 const businessRatingInput = document.getElementById('businessRating');
 const whatsappInput = document.getElementById('whatsappNumber');
 const demoSelect = document.getElementById('demoSelect');
@@ -55,18 +56,25 @@ function extractData(rawText) {
 
 // --- 2. Update Message Preview ---
 function updatePreview() {
-    const name = businessNameInput.value || "[Nome da Clínica]";
+    const name = businessNameInput.value || "[Nome]";
+    let niche = businessNicheInput.value.trim().toLowerCase() || "negócio";
     const rating = businessRatingInput.value || "5,0";
     const phone = whatsappInput.value;
     const demoUrl = demoSelect.value;
     const scriptType = scriptSelect.value;
 
+    // Helper for articles
+    const isFeminine = niche.endsWith('a') || niche === 'clínica' || niche === 'oficina' || niche === 'loja';
+    const artigoA = isFeminine ? 'a sua' : 'o seu';
+
     let text = "";
 
-    if (scriptType === 'elogio') {
-        text = `Olá, equipe do ${name}! Tudo bem?\n\nVi aqui no Google que vocês são muito bem avaliados, com nota ${rating} estrelas. Parabéns pelo excelente trabalho no espaço! ✨\n\nSou especialista em posicionamento de clínicas de estética no Google. Notei o potencial de vocês e percebi que um site premium pode aumentar ainda mais o alcance da clínica. Criamos um modelo focado no nicho de vocês, dêem uma olhada no design de alto padrão:\n${demoUrl}\n\nO que acharam do layout? Faz sentido para o momento de vocês melhorar a captação?`;
-    } else {
-        text = `Olá, somos a equipe Pixelize! Notamos o excelente trabalho do ${name} e a nota ${rating} no Google.\n\nCriamos um modelo de site focado estritamente em estética avançada para aumentar suas consultas via WhatsApp:\n${demoUrl}\n\nGostariam de entender melhor como implementar esse sistema de vendas na clínica?`;
+    if (scriptType === 'msg1') {
+        text = `Oi, tudo bem?\n\nVi ${artigoA} ${niche} no Google e achei o trabalho muito bom.\n\nHoje a maioria dos negócios foca só no Instagram, mas grande parte dos clientes novos vem do Google quando já estão decididos.\n\nE aí entra um ponto chave: quem aparece com mais autoridade ali acaba sendo escolhido primeiro.\n\nMontei um modelo de site pra ${artigoA} ${niche} pensado exatamente pra isso — transformar buscas em mensagens direto no seu WhatsApp.\n\nFiz essa versão sem custo nenhum, só pra te mostrar o potencial na prática.\n\nQuer ver como ficou?\n${demoUrl}`;
+    } else if (scriptType === 'msg2') {
+        text = `Oi, tudo bem?\n\nVi ${artigoA} ${niche} ${name} no Google e notei que vocês já têm uma presença online legal — isso já é um ótimo passo à frente.\n\nMas hoje não basta só "ter", e sim *como* se aparece... porque é isso que faz o cliente escolher vocês e não a concorrência.\n\nMuitos perdem clientes com sites que não convertem a pesquisa em vendas. Montei uma versão estratégica para ${artigoA} ${niche}, focada exatamente nisso: atrair o olhar e gerar contato automático no WhatsApp.\n\nTotalmente sem custo. Quer ver como poderia ficar?\n${demoUrl}`;
+    } else if (scriptType === 'followup') {
+        text = `Oi, tudo bem? \n\nConseguiu dar uma olhadinha no modelo que te mandei mais cedo?\n\nQualquer dúvida sobre como isso pode aumentar os contatos de vocês, estou à disposição!`;
     }
 
     currentMessageText = text;
@@ -95,7 +103,7 @@ extractBtn.addEventListener('click', () => {
 });
 
 // Any manual edit on the config inputs updates the preview
-[businessNameInput, businessRatingInput, whatsappInput, demoSelect, scriptSelect].forEach(input => {
+[businessNameInput, businessNicheInput, businessRatingInput, whatsappInput, demoSelect, scriptSelect].forEach(input => {
     input.addEventListener('input', updatePreview);
     input.addEventListener('change', updatePreview);
 });
