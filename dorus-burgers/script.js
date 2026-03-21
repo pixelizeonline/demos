@@ -1,4 +1,63 @@
 document.addEventListener('DOMContentLoaded', () => {
+
+    // --- Image Sequence Canvas Player ---
+    const canvas = document.getElementById('heroCanvas');
+    if (canvas) {
+        const ctx = canvas.getContext('2d');
+        const frameCount = 80;
+        const images = [];
+        let loadedImages = 0;
+
+        // Preload images
+        for (let i = 0; i < frameCount; i++) {
+            const img = new Image();
+            // Pads current integer with leading zeros to 3 digits e.g. 000, 001, 042
+            const frameNum = i.toString().padStart(3, '0');
+            img.src = `images/dorus/dorus_${frameNum}.jpg`;
+            img.onload = () => loadedImages++;
+            images.push(img);
+        }
+
+        // Draw logic (Equivalent to CSS object-fit: cover)
+        let frame = 0;
+        function draw() {
+            if (images[frame] && images[frame].complete && images[frame].width > 0) {
+                const ratio = Math.max(canvas.width / images[frame].width, canvas.height / images[frame].height);
+                const w = images[frame].width * ratio;
+                const h = images[frame].height * ratio;
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.drawImage(images[frame], (canvas.width - w) / 2, (canvas.height - h) / 2, w, h);
+            }
+        }
+
+        // Loop logic (approx 24 fps)
+        let lastTime = 0;
+        const fps = 24;
+        const interval = 1000 / fps;
+
+        function animateSequence(time) {
+            requestAnimationFrame(animateSequence);
+            if (time - lastTime >= interval) {
+                lastTime = time;
+                if (loadedImages > 0) {
+                    draw();
+                    frame = (frame + 1) % frameCount;
+                }
+            }
+        }
+
+        // Resize handler
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            draw();
+        }
+        
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+        requestAnimationFrame(animateSequence);
+    }
+
     
     // --- Scrolled Header ---
     const header = document.getElementById('header');
