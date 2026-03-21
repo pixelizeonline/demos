@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prospect Machine 2.0 | Pixelize</title>
+    <title>Prospect Machine 3.0 | Pixelize</title>
     <meta name="theme-color" content="#25D366">
     <link rel="manifest" href="manifest.json">
     <link rel="apple-touch-icon" href="icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -16,7 +16,7 @@
     <header class="header">
         <div class="logo">
             <i class="ph-fill ph-rocket-launch"></i>
-            <span>Prospect Machine <span>2.0</span></span>
+            <span>Prospect Machine <span>3.0</span></span>
         </div>
         <div class="header-actions">
             <span>Powered by Pixelize</span>
@@ -24,69 +24,117 @@
     </header>
 
     <main class="dashboard">
+        
+        <!-- Gamification / Metrics -->
+        <section class="metrics-container">
+            <div class="metric-card highlight">
+                <h3>Meta Diária (25 envios)</h3>
+                <div class="progress-wrapper">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="goalProgress" style="width: 0%;"></div>
+                    </div>
+                </div>
+                <p class="metric-value"><span id="dailySends">0</span> / 25 <span class="metric-sub">enviados hoje</span></p>
+            </div>
+            <div class="metric-card">
+                <h3>Em Negociação</h3>
+                <p class="metric-value" id="statsNegotiating">0</p>
+            </div>
+            <div class="metric-card">
+                <h3>Fechados</h3>
+                <p class="metric-value" id="statsClosed">0</p>
+            </div>
+            <div class="metric-card">
+                <h3>Taxa de Abertura</h3>
+                <p class="metric-value">Automática</p>
+            </div>
+        </section>
+
         <!-- TOP SECTION: Inputs and configuration -->
         <div class="top-panels">
             
-            <!-- Left Panel: Smart Paste -->
-            <div class="panel panel-left">
-                <h2>1. Smart Paste (Dados do Google)</h2>
-                <p class="subtitle">Cole todo o texto copiado do Google Maps aqui:</p>
+            <!-- Left Panel: Smart Queue -->
+            <div class="panel panel-left flex-col">
+                <h2><i class="ph-bold ph-list-plus"></i> 1. Adicionar à Fila</h2>
+                <p class="subtitle">Cole o texto do Google Maps e enfileire vários contatos de uma vez.</p>
                 <textarea id="smartInput" placeholder="Ex: Priscila Gomes - Estética Avançada&#10;5,0 (64)&#10;Centro de beleza&#10;(22) 98104-8224..."></textarea>
-                <button id="extractBtn" class="btn btn-secondary">Extrair Dados <i class="ph-bold ph-funnel"></i></button>
+                <button id="queueBtn" class="btn btn-secondary">Extrair e Enfileirar <i class="ph-bold ph-download-simple"></i></button>
+
+                <div class="queue-status mt-auto">
+                    <h3>Fila Atual <span class="badge" id="queueCount">0</span></h3>
+                    <ul id="queueList" class="queue-list">
+                        <li class="empty">A fila está vazia. Adicione prospects acima.</li>
+                    </ul>
+                </div>
             </div>
 
             <!-- Right Panel: Setup & Send -->
             <div class="panel panel-right">
-                <h2>2. Configurar Mensagem</h2>
+                <h2><i class="ph-bold ph-paper-plane-tilt"></i> 2. Disparo Rápido</h2>
                 
-                <div class="form-row extracted-data">
-                    <div class="form-group" style="flex:2;">
-                        <label>Nome do Local</label>
-                        <input type="text" id="businessName" placeholder="Nome automático" autocomplete="off">
+                <div class="active-prospect-card" id="activeProspectCard">
+                    <!-- Form for the Prospect that is currently at the front of the queue -->
+                    <div class="form-row extracted-data">
+                        <div class="form-group" style="flex:2;">
+                            <label>Nome do Local</label>
+                            <input type="text" id="businessName" placeholder="Aguardando fila..." autocomplete="off">
+                        </div>
+                        <div class="form-group" style="flex:1;">
+                            <label>Nicho</label>
+                            <input type="text" id="businessNiche" placeholder="Ex: salão" value="clínica" autocomplete="off">
+                        </div>
+                        <div class="form-group" style="max-width: 80px;">
+                            <label>Nota</label>
+                            <input type="text" id="businessRating" placeholder="5,0" autocomplete="off">
+                        </div>
                     </div>
-                    <div class="form-group" style="flex:1;">
-                        <label>Nicho</label>
-                        <input type="text" id="businessNiche" placeholder="clínica, salão, etc." value="clínica" autocomplete="off">
+
+                    <div class="form-group">
+                        <label>WhatsApp</label>
+                        <input type="text" id="whatsappNumber" placeholder="Ex: 5561994179199" autocomplete="off">
                     </div>
-                    <div class="form-group" style="max-width: 80px;">
-                        <label>Nota</label>
-                        <input type="text" id="businessRating" placeholder="5,0" autocomplete="off">
+
+                    <div class="form-row">
+                        <div class="form-group" style="flex:1;">
+                            <label>Link do Demo (Portfólio)</label>
+                            <select id="demoSelect">
+                                <option value="https://pixelizeonline.github.io/demos/spa-da-mulher/">Spa da Mulher (Luxo)</option>
+                                <option value="https://pixelizeonline.github.io/demos/espaco-adrielle-coimbra/">Adrielle Coimbra (Humanizada)</option>
+                                <option value="https://pixelizeonline.github.io/demos/priscila-gomes/" selected>Priscila Gomes (Estética Corporal)</option>
+                                <option value="">Sem link de Demo</option>
+                            </select>
+                        </div>
+                        <div class="form-group" style="flex:1;">
+                            <label>Script (Roteiro)</label>
+                            <select id="scriptSelect">
+                                <option value="msg1">1. Foco no Google (Decisão)</option>
+                                <option value="msg2">2. Presença Online (Conversão)</option>
+                                <option value="followup">3. Follow-up (Retomada)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="preview-box">
+                        <strong><i class="ph-bold ph-eye"></i> Preview da Mensagem:</strong>
+                        <div id="messagePreview" class="text-preview">Adicione clientes na fila para gerar o texto...</div>
+                    </div>
+
+                    <div class="action-buttons-row">
+                        <button id="skipBtn" class="btn btn-outline" title="Remover da fila e puxar o próximo">Pular <i class="ph-bold ph-skip-forward"></i></button>
+                        <button id="sendBtn" class="btn btn-primary disabled" style="flex:1">Falar no WhatsApp <i class="ph-bold ph-whatsapp-logo"></i></button>
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label>WhatsApp Extraído</label>
-                    <input type="text" id="whatsappNumber" placeholder="Ex: 5561994179199" autocomplete="off">
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group" style="flex:2;">
-                        <label>Link do Demo (Portfolio)</label>
-                        <select id="demoSelect">
-                            <option value="https://pixelizeonline.github.io/demos/spa-da-mulher/">Spa da Mulher (Luxo)</option>
-                            <option value="https://pixelizeonline.github.io/demos/espaco-adrielle-coimbra/">Adrielle Coimbra (Humanizada)</option>
-                            <option value="https://pixelizeonline.github.io/demos/priscila-gomes/" selected>Priscila Gomes (Estética Corporal)</option>
-                            <option value="">Sem link de Demo</option>
-                        </select>
-                    </div>
-                    <div class="form-group" style="flex:2;">
-                        <label>Script (Roteiro)</label>
-                        <select id="scriptSelect">
-                            <option value="msg1">1. Foco no Google (Decisão)</option>
-                            <option value="msg2">2. Presença Online (Conversão)</option>
-                            <option value="followup">3. Follow-up (Retomada)</option>
-                        </select>
+                <div class="objections-panel">
+                    <h3>Anti-Não (Respostas Rápidas) <i class="ph-bold ph-shield-check"></i></h3>
+                    <p>O cliente respondeu com objeção? Clique e envie a resposta pré-montada.</p>
+                    <div class="objections-grid">
+                        <button class="btn btn-sm btn-outline btn-objection" data-type="site">Já tenho site</button>
+                        <button class="btn btn-sm btn-outline btn-objection" data-type="caro">Tá caro / Sem Verba</button>
+                        <button class="btn btn-sm btn-outline btn-objection" data-type="interesse">Não tenho interesse</button>
                     </div>
                 </div>
-
-                <div class="preview-box">
-                    <strong>Preview da Mensagem:</strong>
-                    <div id="messagePreview" class="text-preview">Cole os dados para gerar o texto...</div>
-                </div>
-
-                <button id="sendBtn" class="btn btn-primary disabled">
-                    Falar no WhatsApp <i class="ph-bold ph-whatsapp-logo"></i>
-                </button>
+                
             </div>
         </div>
 
@@ -104,7 +152,7 @@
                             <th>Data</th>
                             <th>Empresa</th>
                             <th>WhatsApp</th>
-                            <th>Status</th>
+                            <th>Status (<span style="color:var(--text-muted);font-weight:normal;font-size:0.8rem">Altera as métricas</span>)</th>
                             <th>Ação</th>
                         </tr>
                     </thead>
