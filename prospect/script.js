@@ -154,9 +154,9 @@ function updatePreview() {
 
     let text = "";
 
-    if (scriptType === 'quebra_gelo') {
+    if (scriptType === 'quebra_gelo' || scriptType === 'msg1' || scriptType === 'elogio') {
         text = `${saudacao}, equipe ${prepDoDa} ${name}! Tudo bem?\n\nPassando rapidinho, vocês são os responsáveis pelos agendamentos aí?`;
-    } else if (scriptType === 'pitch_ajuda') {
+    } else if (scriptType === 'pitch_ajuda' || scriptType === 'msg2' || scriptType === 'direto') {
         text = `Maravilha! Vi ${artigoA} ${niche} no Google e achei o trabalho de vocês excelente.\n\nHoje muitas clínicas acabam focando só no Instagram, mas a grande maioria dos clientes novos vem do Google quando já estão decididos. E o detalhe é: quem aparece melhor estruturado lá, acaba sendo escolhido primeiro.\n\nEu ajudo negócios a aumentarem o volume de agendamentos no WhatsApp focando exatamente nisso. Não quero te vender nada agora, montei uma versão teste focada só nisso pra vocês, sem custo nenhum.\n\nPosso mandar o link rápido só pra você me dizer o que acha da ideia?`;
     } else if (scriptType === 'envio_demo') {
         text = `Aqui está o modelo que preparei para vocês darem uma olhada:\n${demoUrl}\n\nO que acharam do layout e da facilidade pros clientes chamarem vocês?`;
