@@ -237,8 +237,8 @@
                 previewText.textContent = `+${formatted}`;
                 actionBtn.classList.remove('disabled');
                 
-                // Set the exact web.whatsapp link requested by the user
-                actionBtn.href = `https://web.whatsapp.com/send/?phone=${formatted}`;
+                // Set the exact web.whatsapp link requested by the user -> Changed to wa.me to open native apps
+                actionBtn.href = `https://wa.me/${formatted}`;
             } else {
                 previewBox.classList.remove('show');
                 actionBtn.classList.add('disabled');
