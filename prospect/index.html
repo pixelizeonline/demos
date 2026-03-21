@@ -3,264 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WhatsApp Prospect | Pixelize</title>
+    <title>Prospect Machine 2.0 | Pixelize</title>
     <meta name="theme-color" content="#25D366">
     <link rel="manifest" href="manifest.json">
     <link rel="apple-touch-icon" href="icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    <style>
-        :root {
-            --bg: #F3F4F6;
-            --surface: #FFFFFF;
-            --text-main: #111827;
-            --text-muted: #6B7280;
-            --primary: #25D366; /* WhatsApp Green */
-            --primary-hover: #128C7E;
-            --border: #E5E7EB;
-            --ring: rgba(37, 211, 102, 0.3);
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg);
-            color: var(--text-main);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        .card {
-            background-color: var(--surface);
-            padding: 40px;
-            border-radius: 24px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
-            width: 100%;
-            max-width: 480px;
-            text-align: center;
-        }
-
-        .icon-container {
-            width: 64px;
-            height: 64px;
-            background-color: #E8F9F0;
-            color: var(--primary);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 32px;
-            margin: 0 auto 24px auto;
-        }
-
-        h1 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 32px;
-            line-height: 1.5;
-        }
-
-        .input-group {
-            position: relative;
-            margin-bottom: 24px;
-            text-align: left;
-        }
-
-        label {
-            display: block;
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--text-muted);
-            margin-bottom: 8px;
-        }
-
-        input {
-            width: 100%;
-            padding: 16px 20px;
-            font-size: 1.1rem;
-            border: 2px solid var(--border);
-            border-radius: 12px;
-            outline: none;
-            transition: all 0.2s ease;
-            color: var(--text-main);
-            font-family: inherit;
-        }
-
-        input:focus {
-            border-color: var(--primary);
-            box-shadow: 0 0 0 4px var(--ring);
-        }
-
-        /* Number Preview */
-        .preview {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            margin-bottom: 32px;
-            padding: 12px;
-            background-color: #F9FAFB;
-            border-radius: 8px;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            font-family: monospace;
-            opacity: 0; /* Hidden by default */
-            transition: opacity 0.3s;
-        }
-        .preview.show {
-            opacity: 1;
-        }
-
-        .btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            width: 100%;
-            padding: 16px;
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 12px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .btn:hover {
-            background-color: var(--primary-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
-        }
-
-        .btn:active {
-            transform: translateY(0);
-        }
-
-        .btn.disabled {
-            background-color: var(--border);
-            color: var(--text-muted);
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
-        }
-
-        .footer-note {
-            margin-top: 24px;
-            font-size: 0.8rem;
-            color: #9CA3AF;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-    <div class="card">
-        <div class="icon-container">
-            <i class="ph-fill ph-whatsapp-logo"></i>
+    <header class="header">
+        <div class="logo">
+            <i class="ph-fill ph-rocket-launch"></i>
+            <span>Prospect Machine <span>2.0</span></span>
         </div>
-        <h1>Prospect Web</h1>
-        <p>Cole o número encontrado no Google (pode ter espaços, parênteses ou zero na frente). O link correto será gerado na hora.</p>
-
-        <div class="input-group">
-            <label for="phoneInput">Número do Cliente</label>
-            <input type="text" id="phoneInput" placeholder="(61) 99417-9199" autocomplete="off" autofocus>
+        <div class="header-actions">
+            <span>Powered by Pixelize</span>
         </div>
+    </header>
 
-        <div class="preview" id="previewBox">
-            <i class="ph ph-link"></i> <span id="previewText">+55 ...</span>
-        </div>
-
-        <a href="#" id="actionBtn" class="btn disabled" target="_blank">
-            Abrir Conversa
-            <i class="ph-bold ph-arrow-right"></i>
-        </a>
-
-        <div class="footer-note">Desenvolvido por Pixelize</div>
-    </div>
-
-    <script>
-        const phoneInput = document.getElementById('phoneInput');
-        const actionBtn = document.getElementById('actionBtn');
-        const previewBox = document.getElementById('previewBox');
-        const previewText = document.getElementById('previewText');
-
-        // Logic to extract and format the phone number properly
-        function formatPhoneNumber(rawStr) {
-            // Keep only numbers
-            let clean = rawStr.replace(/\D/g, '');
+    <main class="dashboard">
+        <!-- TOP SECTION: Inputs and configuration -->
+        <div class="top-panels">
             
-            if (clean.length === 0) return ''; // Empty
+            <!-- Left Panel: Smart Paste -->
+            <div class="panel panel-left">
+                <h2>1. Smart Paste (Dados do Google)</h2>
+                <p class="subtitle">Cole todo o texto copiado do Google Maps aqui:</p>
+                <textarea id="smartInput" placeholder="Ex: Priscila Gomes - Estética Avançada&#10;5,0 (64)&#10;Centro de beleza&#10;(22) 98104-8224..."></textarea>
+                <button id="extractBtn" class="btn btn-secondary">Extrair Dados <i class="ph-bold ph-funnel"></i></button>
+            </div>
 
-            // If it starts with 00, it might be an international call prefix (uncommon but possible in raw copy)
-            if (clean.startsWith('00')) {
-                clean = clean.substring(2);
-            }
-            
-            // If it starts with 0 and then DDD, standard in Brazil (e.g. 061994179199)
-            if (clean.startsWith('0') && clean.length > 9) {
-                clean = clean.substring(1);
-            }
-
-            // At this point we have standard DDD + Number (eg. 61994179199 -> length 10 or 11)
-            // Or maybe they typed 5561994179199 already!
-            if (!clean.startsWith('55') && (clean.length === 10 || clean.length === 11)) {
-                clean = '55' + clean;
-            }
-
-            return clean;
-        }
-
-        phoneInput.addEventListener('input', (e) => {
-            const raw = e.target.value;
-            const formatted = formatPhoneNumber(raw);
-
-            if (formatted.length >= 10) { // Valid enough to try (could be regular string 55... + 8 or 9 digits)
-                previewBox.classList.add('show');
-                previewText.textContent = `+${formatted}`;
-                actionBtn.classList.remove('disabled');
+            <!-- Right Panel: Setup & Send -->
+            <div class="panel panel-right">
+                <h2>2. Configurar Mensagem</h2>
                 
-                // Set the exact web.whatsapp link requested by the user -> Changed to wa.me to open native apps
-                actionBtn.href = `https://wa.me/${formatted}`;
-            } else {
-                previewBox.classList.remove('show');
-                actionBtn.classList.add('disabled');
-                actionBtn.removeAttribute('href');
-            }
-        });
+                <div class="form-row extracted-data">
+                    <div class="form-group">
+                        <label>Nome do Local</label>
+                        <input type="text" id="businessName" placeholder="Nome automático" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label>Nota</label>
+                        <input type="text" id="businessRating" placeholder="5,0" autocomplete="off" style="width: 80px;">
+                    </div>
+                </div>
 
-        // Trigger 'input' logic on load to handle browser autocomplete
-        phoneInput.dispatchEvent(new Event('input'));
+                <div class="form-group">
+                    <label>WhatsApp Extraído</label>
+                    <input type="text" id="whatsappNumber" placeholder="Ex: 5561994179199" autocomplete="off">
+                </div>
 
-        // PWA Service Worker Registration
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('sw.js')
-                    .then(registration => {
-                        console.log('ServiceWorker registration successful with scope: ', registration.scope);
-                    })
-                    .catch(err => {
-                        console.log('ServiceWorker registration failed: ', err);
-                    });
-            });
-        }
-    </script>
+                <div class="form-row">
+                    <div class="form-group" style="flex:2;">
+                        <label>Link do Demo (Portfolio)</label>
+                        <select id="demoSelect">
+                            <option value="https://pixelizeonline.github.io/demos/spa-da-mulher/">Spa da Mulher (Luxo)</option>
+                            <option value="https://pixelizeonline.github.io/demos/espaco-adrielle-coimbra/">Adrielle Coimbra (Humanizada)</option>
+                            <option value="https://pixelizeonline.github.io/demos/priscila-gomes/" selected>Priscila Gomes (Estética Corporal)</option>
+                            <option value="">Sem link de Demo</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="flex:2;">
+                        <label>Script (Roteiro)</label>
+                        <select id="scriptSelect">
+                            <option value="elogio">Abordagem de Elogio (Recomendado)</option>
+                            <option value="direto">Abordagem Direta (Demo)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="preview-box">
+                    <strong>Preview da Mensagem:</strong>
+                    <div id="messagePreview" class="text-preview">Cole os dados para gerar o texto...</div>
+                </div>
+
+                <button id="sendBtn" class="btn btn-primary disabled">
+                    Falar no WhatsApp <i class="ph-bold ph-whatsapp-logo"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- BOTTOM SECTION: CRM / History -->
+        <div class="panel panel-bottom">
+            <div class="panel-header">
+                <h2>Histórico de Prospecção (CRM)</h2>
+                <button id="clearHistoryBtn" class="btn btn-outline btn-sm">Limpar Histórico</button>
+            </div>
+            
+            <div class="table-container">
+                <table id="crmTable">
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Empresa</th>
+                            <th>WhatsApp</th>
+                            <th>Status</th>
+                            <th>Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody id="crmBody">
+                        <!-- Populated by JS -->
+                    </tbody>
+                </table>
+                <div id="emptyCRM" class="empty-state">
+                    <i class="ph ph-address-book"></i>
+                    <p>Nenhuma prospecção registrada ainda.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
 </body>
 </html>
