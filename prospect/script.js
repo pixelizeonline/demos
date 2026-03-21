@@ -144,15 +144,24 @@ function updatePreview() {
 
     const isFeminine = niche.endsWith('a') || niche === 'clínica' || niche === 'oficina' || niche === 'loja';
     const artigoA = isFeminine ? 'a sua' : 'o seu';
+    const prepDoDa = isFeminine ? 'da' : 'do';
+
+    // Saudação Dinâmica
+    const hour = new Date().getHours();
+    let saudacao = "Bom dia";
+    if (hour >= 12 && hour < 18) saudacao = "Boa tarde";
+    else if (hour >= 18) saudacao = "Boa noite";
 
     let text = "";
 
-    if (scriptType === 'msg1') {
-        text = `Oi, tudo bem?\n\nVi ${artigoA} ${niche} no Google e achei o trabalho muito bom.\n\nHoje a maioria dos negócios foca só no Instagram, mas grande parte dos clientes novos vem do Google quando já estão decididos.\n\nE aí entra um ponto chave: quem aparece com mais autoridade ali acaba sendo escolhido primeiro.\n\nMontei um modelo de site pra ${artigoA} ${niche} pensado exatamente pra isso — transformar buscas em mensagens direto no seu WhatsApp.\n\nFiz essa versão sem custo nenhum, só pra te mostrar o potencial na prática.\n\nQuer ver como ficou?\n${demoUrl}`;
-    } else if (scriptType === 'msg2') {
-        text = `Oi, tudo bem?\n\nVi ${artigoA} ${niche} ${name} no Google e notei que vocês já têm uma presença online legal — isso já é um ótimo passo à frente.\n\nMas hoje não basta só "ter", e sim *como* se aparece... porque é isso que faz o cliente escolher vocês e não a concorrência.\n\nMuitos perdem clientes com sites que não convertem a pesquisa em vendas. Montei uma versão estratégica para ${artigoA} ${niche}, focada exatamente nisso: atrair o olhar e gerar contato automático no WhatsApp.\n\nTotalmente sem custo. Quer ver como poderia ficar?\n${demoUrl}`;
+    if (scriptType === 'quebra_gelo') {
+        text = `${saudacao}, equipe ${prepDoDa} ${name}! Tudo bem?\n\nPassando rapidinho, vocês são os responsáveis pelos agendamentos aí?`;
+    } else if (scriptType === 'pitch_ajuda') {
+        text = `Maravilha! Vi ${artigoA} ${niche} no Google e achei o trabalho de vocês excelente.\n\nHoje muitas clínicas acabam focando só no Instagram, mas a grande maioria dos clientes novos vem do Google quando já estão decididos. E o detalhe é: quem aparece melhor estruturado lá, acaba sendo escolhido primeiro.\n\nEu ajudo negócios a aumentarem o volume de agendamentos no WhatsApp focando exatamente nisso. Não quero te vender nada agora, montei uma versão teste focada só nisso pra vocês, sem custo nenhum.\n\nPosso mandar o link rápido só pra você me dizer o que acha da ideia?`;
+    } else if (scriptType === 'envio_demo') {
+        text = `Aqui está o modelo que preparei para vocês darem uma olhada:\n${demoUrl}\n\nO que acharam do layout e da facilidade pros clientes chamarem vocês?`;
     } else if (scriptType === 'followup') {
-        text = `Oi, tudo bem? \n\nConseguiu dar uma olhadinha no modelo que te mandei mais cedo?\n\nQualquer dúvida sobre como isso pode aumentar os contatos de vocês, estou à disposição!`;
+        text = `${saudacao}! Tudo bem? \n\nConseguiram dar uma olhadinha no modelo que te mandei mais cedo?\n\nQualquer dúvida sobre como isso ajuda a fechar mais agendamentos, estou à disposição!`;
     }
 
     currentMessageText = text;
