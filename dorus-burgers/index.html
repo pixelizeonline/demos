@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dorus Burgers | Espetáculos Gastronômicos</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;800;900&family=Caveat:wght@700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <!-- Header Navigation -->
+    <header class="header" id="header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <span class="logo-dorus">DORUS</span>
+                <span class="logo-burgers">burgers</span>
+            </a>
+            <nav class="nav-links" id="navLinks">
+                <a href="#eventos">Eventos</a>
+                <a href="#delivery">Delivery</a>
+                <a href="#diferencial">O Burger</a>
+                <a href="#contato">Contato</a>
+            </nav>
+            <div class="header-cta">
+                <a href="#contato" class="btn btn-primary">Orçamento</a>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="ph ph-list"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-bg-glow"></div>
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <div class="badge fade-up delay-1">Hambúrguer Artesanal de Alto Padrão</div>
+                    <h1 class="hero-title fade-up delay-2">Transformamos Festas em <br><span>Espetáculos Gastronômicos</span></h1>
+                    <p class="hero-desc fade-up delay-3">Elevamos o nível do seu evento com um Premium Fast-Food servido ao vivo. Atendemos Casamentos, Aniversários e Eventos Corporativos com uma experiência inesquecível de sabor.</p>
+                    
+                    <div class="hero-buttons fade-up delay-4">
+                        <a href="#contato" class="btn btn-primary btn-lg">Reservar Data <i class="ph-bold ph-calendar-check"></i></a>
+                        <a href="https://wa.me/5521999999999" target="_blank" class="btn btn-outline btn-lg">Delivery (RJ) <i class="ph-bold ph-motorcycle"></i></a>
+                    </div>
+                    
+                    <div class="hero-stats fade-up delay-5">
+                        <div class="stat-item">
+                            <div class="stat-icon"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>
+                            <span>Aprovado por +100 Eventos</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-image-wrapper fade-up delay-3">
+                    <div class="burger-halo"></div>
+                    <img src="images/hero_burger.png" alt="High-end Dorus Burger" class="burger-float">
+                </div>
+            </div>
+        </section>
+
+        <!-- Marquee / Social Proof -->
+        <div class="marquee-section">
+            <div class="marquee-inner">
+                <span>Casamentos &bull;</span>
+                <span>Aniversários &bull;</span>
+                <span>Eventos Corporativos &bull;</span>
+                <span>Confraternizações &bull;</span>
+                <span>Formaturas &bull;</span>
+                <span>Festas Privadas &bull;</span>
+                <span>Casamentos &bull;</span>
+                <span>Aniversários &bull;</span>
+                <span>Eventos Corporativos &bull;</span>
+                <span>Confraternizações &bull;</span>
+                <span>Formaturas &bull;</span>
+                <span>Festas Privadas &bull;</span>
+            </div>
+        </div>
+
+        <!-- Eventos Section -->
+        <section class="section events-section" id="eventos">
+            <div class="container">
+                <div class="section-header text-center fade-up">
+                    <h2 class="section-title">O Burger <span class="text-accent">Dorus</span> na Sua Festa</h2>
+                    <p class="section-desc">Esqueça os buffets tradicionais. Surpreenda seus convidados com uma estação gourmet exclusiva, onde cada hambúrguer é montado na hora, garantindo suculência, ingredientes frescos e muito sabor.</p>
+                </div>
+
+                <div class="grid-3">
+                    <div class="feature-card glass-card fade-up delay-1">
+                        <div class="card-icon"><i class="ph-fill ph-confetti"></i></div>
+                        <h3>Aniversários</h3>
+                        <p>Complete a vibe do seu aniversário com a comida que todo mundo ama. Estações personalizadas para encantar dos jovens aos adultos.</p>
+                    </div>
+                    <div class="feature-card glass-card fade-up delay-2">
+                        <div class="card-icon"><i class="ph-fill ph-cheers"></i></div>
+                        <h3>Casamentos</h3>
+                        <p>A energia da pista de dança pede um lanche premium na madrugada. O "Lanchinho da Madrugada" Dorus é sucesso absoluto nos casamentos.</p>
+                    </div>
+                    <div class="feature-card glass-card fade-up delay-3">
+                        <div class="card-icon"><i class="ph-fill ph-buildings"></i></div>
+                        <h3>Corporativos</h3>
+                        <p>Eleve a moral da sua equipe. Festas de fim de ano, metas batidas ou confraternizações ficam muito melhores com um Dorus Burger na mão.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Delivery Banner Section -->
+        <section class="delivery-banner" id="delivery">
+            <div class="container delivery-container">
+                <div class="delivery-content fade-up">
+                    <h2>Bateu a Fome de <span>Dorus em Casa?</span></h2>
+                    <p>Você não precisa dar uma festa para comer o melhor hambúrguer. Nosso delivery funciona de <strong>Quarta a Domingo</strong>.</p>
+                    <ul class="check-list">
+                        <li><i class="ph-bold ph-check"></i> Hambúrguer Artesanal Diferenciado</li>
+                        <li><i class="ph-bold ph-check"></i> Entrega Rápida na Barra e Recreio</li>
+                        <li><i class="ph-bold ph-check"></i> Pão Brioche Selado na Manteiga</li>
+                    </ul>
+                    <a href="https://wa.me/5521999999999" target="_blank" class="btn btn-primary btn-lg mt-4">Fazer Pedido Agora <i class="ph-bold ph-whatsapp-logo"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact/Booking Form -->
+        <section class="section contact-section" id="contato">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-info fade-up">
+                        <h2 class="section-title">Garanta sua Data. <br><span>O Sabor Fica por Nossa Conta.</span></h2>
+                        <p class="section-desc">Preeencha o formulário abaixo para receber um orçamento detalhado para o seu evento. Nossa agenda esgota rápido, recomendamos reservar com antecedência.</p>
+                        
+                        <div class="contact-card mt-4">
+                            <i class="ph-fill ph-whatsapp-logo"></i>
+                            <div>
+                                <h4>WhatsApp Direto</h4>
+                                <p>Prefere falar direto pelo WhatsApp? <br><a href="https://wa.me/5521999999999" class="text-accent underline">(21) 99999-9999</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form-wrapper glass-card form-glow fade-up delay-2">
+                        <form id="bookingForm" class="dorus-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name">Seu Nome</label>
+                                    <input type="text" id="name" placeholder="Ex: João Guilherme" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="whatsapp">WhatsApp</label>
+                                    <input type="tel" id="whatsapp" placeholder="(21) 90000-0000" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="eventType">Tipo de Evento</label>
+                                    <select id="eventType" required>
+                                        <option value="" disabled selected>Selecione...</option>
+                                        <option value="casamento">Casamento</option>
+                                        <option value="aniversario">Aniversário</option>
+                                        <option value="corporativo">Corporativo</option>
+                                        <option value="outro">Outro (Especifique abaixo)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="guests">Nº de Convidados</label>
+                                    <input type="number" id="guests" placeholder="Ex: 80" min="20" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="eventDate">Data Estimada do Evento</label>
+                                <input type="date" id="eventDate" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Mensagem ou Detalhes (Opcional)</label>
+                                <textarea id="message" rows="4" placeholder="Conte-nos um pouco sobre o estilo da festa..."></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-block btn-lg mt-2">
+                                Solicitar Orçamento <i class="ph-bold ph-paper-plane-right"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <span class="logo-dorus">DORUS</span>
+                    <span class="logo-burgers" style="font-size: 1.2rem;">burgers</span>
+                </a>
+                <p>Artesanal DIFERENCIADO para você ou para sua festa.<br>Delivery e Eventos de Elite no RJ.</p>
+            </div>
+            <div class="footer-social">
+                <a href="#"><i class="ph-fill ph-instagram-logo"></i></a>
+                <a href="#"><i class="ph-fill ph-whatsapp-logo"></i></a>
+                <a href="#"><i class="ph-fill ph-tiktok-logo"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom text-center">
+            <p>&copy; 2026 Dorus Burgers. Todos os direitos reservados. | Desenvolvido por <a href="#" class="text-accent underline">Pixelize</a>.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
