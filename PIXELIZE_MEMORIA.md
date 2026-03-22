@@ -36,3 +36,9 @@ Devido à organização de diretórios por nichos, os links formatados são semp
 
 **Exemplo:** Se a página "Hamburgueria do Zé" for criada na pasta "alimentacao"...
 - A IA deve entregar: `https://pixelizeonline.github.io/demos/alimentacao/hamburgueria-do-ze/`
+
+## 6. O Padrão "50k" (Premium UI & Responsividade) 💎
+Nenhum projeto pode parecer um template genérico ou barato. Todo site gerado deve ter aspecto visual nativo de um projeto de **Alto Valor (nível 50K+ / Premium)**.
+A IA deve sempre incluir nativamente:
+- **"Frescurinhas" e Micro-interações Mágicas:** Animações avançadas (como fade-ups no scroll), botões magnéticos, efeitos de hover sutis, sobreposições de vidro (glassmorphism), overlays de gradiente macios e tipografia refinada. A interface precisa parecer "viva" e despertar o fator "WOW".
+- **Responsividade Máxima (Mobile-First):** O design DEVE ser pensado com a perfeição mobile desde o primeiro código. Ajustes milimétricos de padding, margens amigáveis para touch e ausência absoluta de bugs visuais em telas pequenas são inegociáveis. O projeto precisa renderizar perfeitamente no celular sob qualquer condição.
