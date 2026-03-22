@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const date = document.getElementById('eventDate').value;
         
         // WhatsApp Redirect Generation
-        const companyPhone = "5521999999999"; 
+        const companyPhone = "5521964234134"; 
         
         // Format Date roughly
         const dObj = new Date(date);
