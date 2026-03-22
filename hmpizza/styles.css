@@ -656,22 +656,93 @@ h1, h2, h3, h4, .logo-hm, .logo-pizza {
 .delay-3 { transition-delay: 0.3s; }
 .delay-4 { transition-delay: 0.4s; }
 
-/* Mobile Repsonsive */
+/* Menu Overlay */
+.menu-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    z-index: 98;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.4s;
+}
+.menu-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Mobile Responsive */
 @media (max-width: 1024px) {
     .hero-title { font-size: 4rem; }
-    .section-title { font-size: 3rem; }
-    .contact-info .section-title { font-size: 3rem; }
+    .section-title, .contact-info .section-title { font-size: 3rem; }
     
-    .nav-links { display: none; } /* Simplified for this logic */
-    .menu-toggle { display: block; }
+    /* Mobile Menu */
+    .header-cta { display: none; }
+    .menu-toggle { display: block; position: relative; z-index: 100; }
+    .nav-links {
+        display: flex;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: 80%;
+        max-width: 350px;
+        flex-direction: column;
+        background: rgba(10, 10, 10, 0.98);
+        border-radius: 0;
+        padding: 100px 40px;
+        transition: 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        z-index: 99;
+        border: none;
+        border-left: 1px solid var(--glass-border);
+    }
+    .nav-links.active { right: 0; }
+    .nav-links a { font-size: 1.5rem; padding: 15px 0; border-bottom: 1px solid var(--glass-border); }
+    .nav-links a::after { display: none; }
 
-    .grid-3 { grid-template-columns: 1fr; }
-    .flavors-container { grid-template-columns: 1fr; }
-    .packages-grid { grid-template-columns: 1fr; }
-    .drinks-grid { grid-template-columns: 1fr; }
-    .contact-grid { grid-template-columns: 1fr; }
-    
+    .grid-3, .flavors-container, .packages-grid, .drinks-grid, .contact-grid { grid-template-columns: 1fr; }
     .footer-container { flex-direction: column; gap: 40px; text-align: center; }
     .footer-brand { text-align: center; }
     .footer-social { justify-content: center; }
+}
+
+@media (max-width: 768px) {
+    .section { padding: 60px 0; }
+    .container { padding: 0 20px; }
+    
+    .hero-title { font-size: 2.5rem; }
+    .hero-desc { font-size: 1.1rem; }
+    .section-title, .contact-info .section-title { font-size: 2.2rem; }
+    .flavor-type { font-size: 1.8rem; }
+    .package-price { font-size: 3rem; }
+    .drink-price { font-size: 2rem; }
+    
+    .hero-sequence-section { min-height: 100svh; }
+    .badge { font-size: 0.75rem; padding: 6px 16px; margin-bottom: 20px; }
+    .hero-buttons { flex-direction: column; width: 100%; }
+    .hero-buttons .btn { width: 100%; }
+    
+    .header-container { padding: 0 15px; }
+    .logo-hm { font-size: 1.5rem; }
+    .logo-pizza { font-size: 1rem; }
+    .logo-icon { font-size: 1.5rem; }
+    
+    .feature-card, .flavors-box, .contact-form-wrapper { padding: 30px 20px; }
+    .flavor-list-cols { grid-template-columns: 1fr; gap: 0; }
+    .package-card { padding: 40px 20px; }
+    .drink-info { padding: 60px 20px 30px 20px; }
+    .drink-img-wrap { height: 250px; }
+    
+    .float-zap { width: 55px; height: 55px; font-size: 1.8rem; bottom: 20px; right: 20px; }
+    .marquee-inner span { font-size: 1.5rem; }
+    .footer-logo-box .logo-hm { font-size: 2rem; }
+    .footer-social a { width: 50px; height: 50px; font-size: 1.2rem; }
+}
+
+@media (max-width: 480px) {
+    .hero-title { font-size: 2.2rem; }
+    .section-title, .contact-info .section-title { font-size: 2rem; }
+    .package-price { font-size: 2.5rem; }
+    .flavor-type { font-size: 1.5rem; }
 }
