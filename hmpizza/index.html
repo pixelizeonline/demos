@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HM Pizza | A Experiência Definitiva</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <!-- Premium Header -->
+    <header class="header" id="header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <div class="logo-main">
+                    <i class="ph-fill ph-fire logo-icon"></i>
+                    <span class="logo-hm">HM</span> <span class="logo-pizza">PIZZA</span>
+                </div>
+            </a>
+            <nav class="nav-links" id="navLinks">
+                <a href="#home">Home</a>
+                <a href="#diferencial">O Evento</a>
+                <a href="#sabores">Sabores</a>
+                <a href="#pacotes">Pacotes</a>
+                <a href="#bebidas">Bebidas</a>
+            </nav>
+            <div class="header-cta">
+                <a href="#contato" class="btn btn-primary magnetic-btn">Falar com Consultor <i class="ph-bold ph-arrow-right"></i></a>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="ph ph-list"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Canvas Image Sequence Hero -->
+        <section class="hero-sequence-section" id="home">
+            <div class="canvas-container">
+                <canvas id="hero-canvas"></canvas>
+                <div class="canvas-overlay"></div>
+            </div>
+            <div class="container hero-content">
+                <div class="hero-text-content">
+                    <div class="badge fade-up delay-1">Est 2023 &bull; Mania de Pizza</div>
+                    <h1 class="hero-title fade-up delay-2">A Experiência <span class="text-accent">Definitiva</span> em <br>Festas e Eventos</h1>
+                    <p class="hero-desc fade-up delay-3">Esqueça as convenções. Transformamos sua celebração em um espetáculo gastronômico inesquecível com nosso rodízio de pizza preparado ao vivo.</p>
+                    <div class="hero-buttons fade-up delay-4">
+                        <a href="#contato" class="btn btn-primary btn-lg magnetic-btn">Reservar Minha Data</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Events / Differential Section -->
+        <section class="section events-section" id="diferencial">
+            <div class="container">
+                <div class="section-header text-center fade-up">
+                    <h2 class="section-title">Sinta o Sabor da <span class="text-accent">Pizzaria no Seu Evento</span></h2>
+                    <p class="section-desc">Escolha seus ingredientes favoritos e crie o seu próprio sabor!! Levamos tudo para que você seja o melhor anfitrião.</p>
+                </div>
+
+                <div class="grid-3">
+                    <div class="feature-card glass-card fade-up delay-1 hover-glow">
+                        <div class="card-icon">01</div>
+                        <p>Surpreenda seus convidados com um Rodízio de pizza EXCLUSIVO, uma pizzaria na sua casa/empresa.</p>
+                    </div>
+                    <div class="feature-card glass-card fade-up delay-2 hover-glow">
+                        <div class="card-icon">02</div>
+                        <p>Nossa equipe leva os ingredientes e equipamentos para criar uma experiência inesquecível.</p>
+                    </div>
+                    <div class="feature-card glass-card fade-up delay-3 hover-glow">
+                        <div class="card-icon">03</div>
+                        <p>Você pode montar sua própria pizza com seus ingredientes favoritos.</p>
+                    </div>
+                    <div class="feature-card glass-card fade-up delay-1 hover-glow">
+                        <div class="card-icon">04</div>
+                        <p>Utilizamos ingredientes da melhor qualidade para que nossas pizzas tenham o sabor autêntico.</p>
+                    </div>
+                    <div class="feature-card glass-card fade-up delay-2 hover-glow">
+                        <div class="card-icon">05</div>
+                        <p>Tem restrição alimentar? Conheça nossas opções de massas integrais, sem glúten e sem lactose.</p>
+                    </div>
+                    <div class="feature-card glass-card fade-up delay-3 hover-glow">
+                        <div class="card-icon">06</div>
+                        <p>Você pode participar da criação das pizzas e escolher seus próprios ingredientes.</p>
+                    </div>
+                    <div class="feature-card glass-card fade-up delay-1 hover-glow">
+                        <div class="card-icon">07</div>
+                        <p>Experimente diversos sabores em um único rodízio. Temos mais de 50 sabores em nosso cardápio.</p>
+                    </div>
+                    <div class="feature-card glass-card fade-up delay-2 hover-glow">
+                        <div class="card-icon">08</div>
+                        <p>Não consome carne? Temos deliciosas opções de pizzas vegetarianas e veganas.</p>
+                    </div>
+                    <div class="feature-card glass-card fade-up delay-3 hover-glow">
+                        <div class="card-icon">09</div>
+                        <p>Nossa equipe é especializada e conta com pizzaiolos e garçons muito experientes.</p>
+                    </div>
+                    <div class="feature-card glass-card fade-up delay-1 hover-glow" style="grid-column: 1 / -1; max-width: 500px; margin: 0 auto;">
+                        <div class="card-icon">10</div>
+                        <p>Levamos e retiramos todo o material necessário, sem custo adicional.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Flavors Section -->
+        <section class="section flavors-section" id="sabores">
+            <div class="section-glow"></div>
+            <div class="container relative-z">
+                <div class="section-header text-center fade-up">
+                    <h2 class="section-title">Nossos <span class="text-accent">Sabores</span></h2>
+                    <p class="section-desc">Uma diversidade espetacular para o seu evento.</p>
+                </div>
+                
+                <div class="flavors-container">
+                    <div class="flavors-box glass-card fade-up delay-1 hover-glow">
+                        <h3 class="flavor-type">Salgadas Premium</h3>
+                        <div class="flavor-list-cols">
+                            <ul class="flavor-list">
+                                <li>Abobrinha</li><li>Alho frito</li><li>Alho Poró</li><li>Atum</li><li>Bacalhau</li>
+                                <li>Bacon com ovos e Milho</li><li>Bacon Crispy</li><li>Baiana c/ Pimenta Biquinho</li>
+                                <li>Camarão</li><li>Brócolis com Alho</li><li>Carne Seca com Catupiry</li><li>Caipira</li>
+                                <li>Calabresa com Cebola</li><li>Cebola Caramelizada</li><li>Cebola Crispy</li>
+                            </ul>
+                            <ul class="flavor-list">
+                                <li>Frango com Catupiry</li><li>Funghi</li><li>Hot Dog</li><li>Lombo com Catupiry</li>
+                                <li>Marguerita</li><li>Milho com Catupiry</li><li>Peito de peru</li><li>Mussarela</li>
+                                <li>Palmito</li><li>Pepperoni</li><li>Pêra com Gorgonzola</li><li>Portuguesa</li>
+                                <li>Quatro Queijos</li><li>Rúcula com Tomate Seco</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="flavors-box doces-box glass-card fade-up delay-2 hover-glow">
+                        <h3 class="flavor-type">Doces Exclusivas</h3>
+                        <ul class="flavor-list flavor-cols-1">
+                            <li>Nutella com Morango</li><li>Chocolate ao Leite</li><li>Chocolate Duo</li>
+                            <li>Ovomaltine</li><li>Banana com Canela</li><li>Banana com Chocolate</li>
+                            <li>Geleia de Pimenta</li><li>Romeu e Julieta</li>
+                        </ul>
+                        <div class="flavor-badge">
+                            Não achou seu sabor? É só contar pra gente as suas favoritas que incluímos no cardápio!!!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Packages Section -->
+        <section class="section packages-section" id="pacotes">
+            <div class="container">
+                <div class="section-header text-center fade-up">
+                    <h2 class="section-title">A Escolha <span class="text-accent">Perfeita</span></h2>
+                    <p class="section-desc">Formatos desenhados para a grandiosidade da sua celebração.</p>
+                </div>
+
+                <div class="packages-grid">
+                    <div class="package-card glass-card fade-up delay-1 hover-glow">
+                        <div class="package-header">
+                            <h3>Pacote Basic</h3>
+                            <div class="package-price">R$21,00<span>/pessoa</span></div>
+                        </div>
+                        <ul class="package-features">
+                            <li><i class="ph-bold ph-check"></i> 10 opções de pizza salgada</li>
+                            <li><i class="ph-bold ph-check"></i> 02 opções de pizza doce</li>
+                            <li><i class="ph-bold ph-check"></i> 02 opções de pizza premium</li>
+                            <li><i class="ph-bold ph-check"></i> Pratos e Copos de louça</li>
+                            <li><i class="ph-bold ph-check"></i> Contrato de prestação de serviço</li>
+                            <li><i class="ph-bold ph-check"></i> 04 horas de evento</li>
+                            <li><i class="ph-bold ph-check"></i> Dois monitores</li>
+                        </ul>
+                        <a href="#contato" class="btn btn-outline btn-block mt-4 magnetic-btn">Selecionar Basic</a>
+                    </div>
+
+                    <div class="package-card premium glass-card fade-up delay-2 hover-glow">
+                        <div class="package-badge">Mais Escolhido</div>
+                        <div class="package-header">
+                            <h3>Pacote Premium</h3>
+                            <div class="package-price">R$27,00<span>/pessoa</span></div>
+                        </div>
+                        <ul class="package-features">
+                            <li><i class="ph-bold ph-check"></i> 20 opções de pizza salgada</li>
+                            <li><i class="ph-bold ph-check"></i> 08 opções de pizza doce</li>
+                            <li><i class="ph-bold ph-check"></i> 05 opções de pizza premium</li>
+                            <li><i class="ph-bold ph-check"></i> Pratos e Copos de louça</li>
+                            <li><i class="ph-bold ph-check"></i> Contrato de prestação de serviço</li>
+                            <li><i class="ph-bold ph-check"></i> 04 horas de evento</li>
+                            <li><i class="ph-bold ph-check"></i> Abertura de massa no local</li>
+                            <li><i class="ph-bold ph-check"></i> Três monitores</li>
+                        </ul>
+                        <a href="#contato" class="btn btn-primary btn-block mt-4 magnetic-btn">Selecionar Premium</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Drinks Section -->
+        <section class="section drinks-section" id="bebidas">
+            <div class="container">
+                <div class="section-header text-center fade-up">
+                    <h2 class="section-title">Nossas <span class="text-accent">Bebidas</span></h2>
+                </div>
+                
+                <div class="drinks-grid">
+                    <div class="drink-card fade-up delay-1 hover-glow">
+                        <div class="drink-img-wrap">
+                            <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=400&auto=format&fit=crop" alt="Refrigerantes">
+                        </div>
+                        <div class="drink-info glass-card">
+                            <div class="drink-price">R$14,90<span>/pessoa</span></div>
+                            <h4>Refrigerante, Suco, Mate e Água</h4>
+                            <p class="text-muted">Inclusos: Refrigerante Premium, Suco, Mate.</p>
+                        </div>
+                    </div>
+                    <div class="drink-card fade-up delay-2 hover-glow">
+                        <div class="drink-img-wrap">
+                            <img src="images/beer_premium.png" alt="Cervejas">
+                        </div>
+                        <div class="drink-info glass-card">
+                            <div class="drink-price">R$39,90<span>/pessoa</span></div>
+                            <h4>Brahma, Budweiser, Heineken</h4>
+                            <p class="text-muted">Inclusos: Cervejas Premium (+18).</p>
+                        </div>
+                    </div>
+                    <div class="drink-card fade-up delay-3 hover-glow">
+                        <div class="drink-img-wrap">
+                            <img src="images/acai_premium.png" alt="Açaí">
+                        </div>
+                        <div class="drink-info glass-card">
+                            <div class="drink-price">R$19,90<span>/pessoa</span></div>
+                            <h4>Açaí, Granola, Leite em Pó</h4>
+                            <p class="text-muted">Inclusos: Frozen de açaí personalizável!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact/Booking Form -->
+        <section class="section contact-section" id="contato">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-info fade-up">
+                        <h2 class="section-title">Faça parte da nossa <br><span class="text-accent">Mania de Pizza.</span></h2>
+                        <p class="section-desc">Reserve o espetáculo HM Pizza para a sua festa. Preencha os detalhes e cuidaremos de todos os bastidores.</p>
+
+                        <div class="payment-info glass-card mt-4 hover-glow">
+                            <h3 style="margin-bottom: 20px; font-family: 'Outfit', sans-serif;">Formas de Pagamento</h3>
+                            <div style="margin-bottom: 20px; display: flex; gap: 10px; flex-wrap: wrap;">
+                                <span class="badge" style="background: var(--accent-primary); color: white;">VIA PIX (5% DE DESCONTO)</span>
+                                <span class="badge" style="border-color: rgba(255,255,255,0.2);">CARTÃO EM ATÉ 10X</span>
+                            </div>
+                            <p class="text-muted" style="font-size: 0.9rem;">
+                                Pagamento de 50% no ato da contratação para bloqueio da data.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-wrapper glass-card form-glow fade-up delay-2">
+                        <form id="bookingForm" class="dorus-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name">Seu Nome</label>
+                                    <input type="text" id="name" placeholder="Ex: Maria Clara" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="whatsapp">WhatsApp</label>
+                                    <input type="tel" id="whatsapp" placeholder="(11) 99999-9999" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Mensagem ou Detalhes</label>
+                                <textarea id="message" rows="4" placeholder="Endereço aproximado do evento, pacotes desejados..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block btn-lg mt-2 magnetic-btn">
+                                Solicitar Orçamento <i class="ph-bold ph-paper-plane-right"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <!-- Premium decorative banner before footer content -->
+        <div class="footer-banner">
+            <div class="marquee-inner">
+                <span>EST 2023 &bull; MANIA DE PIZZA &bull; </span>
+                <span>EST 2023 &bull; MANIA DE PIZZA &bull; </span>
+                <span>EST 2023 &bull; MANIA DE PIZZA &bull; </span>
+                <span>EST 2023 &bull; MANIA DE PIZZA &bull; </span>
+            </div>
+        </div>
+
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <div class="logo-main footer-logo-box">
+                    <i class="ph-fill ph-fire text-accent" style="font-size: 2rem;"></i>
+                    <span class="logo-hm" style="font-size: 2.5rem;">HM</span>
+                    <span class="logo-pizza" style="font-size: 1.2rem; display: block; letter-spacing: 8px;">PIZZA</span>
+                </div>
+                <div class="footer-social mt-4">
+                    <a href="#" class="magnetic-btn"><i class="ph-fill ph-instagram-logo"></i></a>
+                    <a href="#" class="magnetic-btn"><i class="ph-fill ph-whatsapp-logo"></i></a>
+                </div>
+                <p class="mt-2 text-white" style="font-size: 1.1rem; font-weight: 500;">@hmpizza &nbsp;&bull;&nbsp; Hmpizza.com.br</p>
+            </div>
+            
+            <div class="footer-qr-code glass-card">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://hmpizza.com.br" alt="QR Code HMPizza" class="qr-img">
+                <p class="text-muted" style="font-size: 0.8rem; margin-top: 10px;">Escaneie para acessar o menu</p>
+            </div>
+        </div>
+
+        <div class="container footer-pixelize">
+            <div class="pixelize-credit">
+                <p>Tudo aqui sempre pertence a <strong><span style="color: #fff;">Pixelize</span> <i class="ph-fill ph-lightning text-accent"></i></strong></p>
+                <p class="text-muted" style="font-size: 0.8rem; margin-top: 5px;">&copy; 2026 Desenvolvido com exclusividade.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/5521999999999" target="_blank" class="float-zap hover-glow">
+        <i class="ph-fill ph-whatsapp-logo"></i>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
