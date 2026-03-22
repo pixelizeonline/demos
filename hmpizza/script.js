@@ -89,7 +89,6 @@ document.addEventListener('DOMContentLoaded', () => {
         let lastTime = 0;
         const fps = 15; // Cinema feel, slowed down
         const fpsInterval = 1000 / fps;
-        let direction = 1;
 
         const animateLoop = (time) => {
             requestAnimationFrame(animateLoop);
@@ -97,14 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const elapsed = time - lastTime;
             if (elapsed > fpsInterval && imagesLoaded > 10) { // Start playing if we have enough images
                 lastTime = time - (elapsed % fpsInterval);
-                playhead += direction;
-                if(playhead >= frameCount - 1) {
-                    playhead = frameCount - 1;
-                    direction = -1; // Ping-pong reverse
-                } else if(playhead <= 0) {
-                    playhead = 0;
-                    direction = 1; // Ping-pong forward
-                }
+                playhead = (playhead + 1) % frameCount;
                 renderFrame();
             }
         };
