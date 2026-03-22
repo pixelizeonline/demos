@@ -154,14 +154,14 @@ function updatePreview() {
 
     let text = "";
 
-    if (scriptType === 'quebra_gelo' || scriptType === 'msg1' || scriptType === 'elogio') {
-        text = `${saudacao}, equipe ${prepDoDa} ${name}! Tudo bem?\n\nPassando rapidinho, vocês são os responsáveis pelos agendamentos aí?`;
-    } else if (scriptType === 'pitch_ajuda' || scriptType === 'msg2' || scriptType === 'direto') {
-        text = `Maravilha! Vi ${artigoA} ${niche} no Google e achei o trabalho de vocês excelente.\n\nHoje muitas clínicas acabam focando só no Instagram, mas a grande maioria dos clientes novos vem do Google quando já estão decididos. E o detalhe é: quem aparece melhor estruturado lá, acaba sendo escolhido primeiro.\n\nEu ajudo negócios a aumentarem o volume de agendamentos no WhatsApp focando exatamente nisso. Não quero te vender nada agora, montei uma versão teste focada só nisso pra vocês, sem custo nenhum.\n\nPosso mandar o link rápido só pra você me dizer o que acha da ideia?`;
+    if (scriptType === 'auditoria') {
+        text = `${saudacao}, equipe ${prepDoDa} *${name}*, tudo bem?\n\nEstava analisando as buscas por ${niche} no Google e notei uma falha de conversão no perfil de vocês. O tráfego está indo para concorrentes porque o link atual direciona para um gargalo.\n\nGravei um vídeo rápido de 1 min mostrando onde está vazando dinheiro. Posso enviar o link do vídeo aqui?`;
+    } else if (scriptType === 'msg2') {
+        text = `Para resolver isso, a grande maioria dos clientes novos vem do Google quando já estão decididos. E o detalhe é: quem aparece melhor estruturado lá com um ambiente de conversão, acaba sendo escolhido primeiro.\n\nNós desenvolvemos uma estrutura focada exatamente em resolver isso, com botão magnético de WhatsApp e velocidade máxima. Posso mandar nosso link modelo de teste pra você comparar?`;
     } else if (scriptType === 'envio_demo') {
-        text = `Aqui está o modelo que preparei para vocês darem uma olhada:\n${demoUrl}\n\nO que acharam do layout e da facilidade pros clientes chamarem vocês?`;
+        text = `Aqui está o ambiente de conversão que nós desenvolvemos:\n${demoUrl}\n\nDiferente de links comuns, nós aplicamos um código de blindagem antifurto, tempo de resposta ultrarrápido e gatilhos de rolagem estéticos que prendem a atenção do lead.\n\nCompare a experiência de usar isso no celular com a da sua página atual. O que achou?`;
     } else if (scriptType === 'followup') {
-        text = `${saudacao}! Tudo bem? \n\nConseguiram dar uma olhadinha no modelo que te mandei mais cedo?\n\nQualquer dúvida sobre como isso ajuda a fechar mais agendamentos, estou à disposição!`;
+        text = `${saudacao}! Tudo bem? \n\nConseguiram dar uma olhadinha no vídeo/modelo que te mandei antes?\n\nQualquer dúvida sobre como isso ajuda e o impacto de fechamentos, estou por aqui!`;
     }
 
     currentMessageText = text;
@@ -194,11 +194,13 @@ objectionBtns.forEach(btn => {
 
         let reply = "";
         if (type === 'site') {
-             reply = `Eu entendo perfeitamente! Foi exatamente por isso que te escolhi. Muitas clínicas que já têm site costumam focar nele como um "panfleto digital" e não tem botão visível.\nO modelo que montei não é um panfleto, é uma máquina focada em cliques no seu WhatsApp. Só olha rapidamente o design e os botões... a diferença salta aos olhos!`;
+             reply = `Entendo perfeitamente! Foi exatamente por isso que chamei. Empresas que já têm site costumam focar nele como um "panfleto" estático.\nO modelo que montei não é um panfleto, é uma máquina focada em cliques no seu WhatsApp. Com uma estrutura de alto valor, a diferença salta aos olhos!`;
+        } else if (type === 'agencia') {
+             reply = `Maravilha ter uma agência trabalhando com vocês! A questão é que muitas agências são excelentes de tráfego, mas usam templates fracos na Engenharia de Conversão (Landing Pages).\nMostre o nosso modelo para a sua agência e compare a velocidade e a estrutura magnética.`;
+        } else if (type === 'socio') {
+             reply = `Claro, super entendo. Sociedade é assim mesmo.\nFaz o seguinte: manda o link do nosso modelo no grupo de vocês e compara o design com a estrutura de vocês hoje. A percepção de luxo e velocidade de carregamento se vendem sozinhas. Fico no aguardo!`;
         } else if (type === 'caro') {
-             reply = `Compreendo perfeitamente o momento! Justamente por entender a situação, desenvolvi esse sistema focado 100% num retorno rápido.\nA diferença entre a sua página atual do Google e essa é imensa. A ideia é que ele se pague logo nos primeiros 2 clientes que fecharem por buscarem no Google. Topa dar só uma espiada sem compromisso?`;
-        } else if (type === 'interesse') {
-             reply = `Sem problemas! Eu sei que a rotina por aí deve estar puxada.\nVou deixar o link aqui caso no futuro vocês queiram escalar o volume de agendamentos que vem do Google, tá bom? Sucesso para a equipe!`;
+             reply = `Compreendo o limite! Mas a questão aqui não é custo, é Retorno Imediato. A diferença entre a sua página atual do Google e essa estrutura premium é gigantesca.\nA ideia é que esse ambiente se pague logo nos primeiros 2 clientes extras que fecharem. Topa dar só uma espiada no link sem compromisso antes de falarmos de valores?`;
         }
 
         const encodedText = encodeURIComponent(reply);
@@ -283,7 +285,11 @@ function renderCRM() {
         const d = new Date(entry.date);
         const dateStr = `${d.getDate().toString().padStart(2, '0')}/${(d.getMonth()+1).toString().padStart(2, '0')} ${d.getHours().toString().padStart(2, '0')}:${d.getMinutes().toString().padStart(2, '0')}`;
         
+        const hoursPassed = (new Date() - d) / (1000 * 60 * 60);
+        const needsFollowup = hoursPassed > 48 && entry.status === 'contacted';
+        
         const tr = document.createElement('tr');
+        if (needsFollowup) tr.classList.add('row-overdue');
         
         // Dynamic row color
         let selectClass = "bg-contacted";

@@ -385,6 +385,14 @@ tbody tr:hover { background: var(--input-bg); }
 .bg-interested { background: #FEF3C7 !important; }
 .bg-closed { background: #D1FAE5 !important; }
 
+/* CRM 48h Follow-up Alert */
+tr.row-overdue td {
+    background: #FEF2F2;
+}
+tr.row-overdue td:first-child {
+    border-left: 4px solid var(--danger);
+}
+
 .empty-state { text-align: center; padding: 40px; color: var(--text-muted); }
 .empty-state i { font-size: 3rem; margin-bottom: 10px; opacity: 0.5; }
 .empty-state.hidden { display: none; }

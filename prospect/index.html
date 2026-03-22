@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prospect Machine 3.0 | Pixelize</title>
+    <title>Prospect Machine 4.0 | Pixelize</title>
     <meta name="theme-color" content="#25D366">
     <link rel="manifest" href="manifest.json">
     <link rel="apple-touch-icon" href="icon.png">
@@ -16,7 +16,7 @@
     <header class="header">
         <div class="logo">
             <i class="ph-fill ph-rocket-launch"></i>
-            <span>Prospect Machine <span>3.0</span></span>
+            <span>Prospect Machine <span>4.0</span></span>
         </div>
         <div class="header-actions">
             <span>Powered by Pixelize</span>
@@ -96,20 +96,32 @@
 
                     <div class="form-row">
                         <div class="form-group" style="flex:1;">
-                            <label>Link do Demo (Portfólio)</label>
+                            <label>Link do Demo (Portfólio 50k)</label>
                             <select id="demoSelect">
-                                <option value="https://pixelizeonline.github.io/demos/spa-da-mulher/">Spa da Mulher (Luxo)</option>
-                                <option value="https://pixelizeonline.github.io/demos/espaco-adrielle-coimbra/">Adrielle Coimbra (Humanizada)</option>
-                                <option value="https://pixelizeonline.github.io/demos/priscila-gomes/" selected>Priscila Gomes (Estética Corporal)</option>
+                                <optgroup label="Estética Avançada">
+                                    <option value="https://pixelizeonline.github.io/demos/estetica/crislli/">Crislli (Premium Rosa)</option>
+                                    <option value="https://pixelizeonline.github.io/demos/estetica/euvip/">EuVip (Glassmorphism 50k)</option>
+                                    <option value="https://pixelizeonline.github.io/demos/estetica/spa-da-mulher/">Spa da Mulher (Dark Luxo)</option>
+                                    <option value="https://pixelizeonline.github.io/demos/estetica/priscila-gomes/">Priscila Gomes (Estética Corporal)</option>
+                                    <option value="https://pixelizeonline.github.io/demos/estetica/espaco-adrielle-coimbra/">Adrielle Coimbra (Humanizada)</option>
+                                </optgroup>
+                                <optgroup label="Alimentação">
+                                    <option value="https://pixelizeonline.github.io/demos/alimentacao/hm-pizza/" selected>HM Pizza (Cinematic Video)</option>
+                                    <option value="https://pixelizeonline.github.io/demos/alimentacao/dorus-burgers/">Dorus Burgers (Mobile First Burger)</option>
+                                </optgroup>
+                                <optgroup label="Agência Digital">
+                                    <option value="https://pixelizeonline.github.io/demos/pixelize_site/">Institucional Pixelize</option>
+                                </optgroup>
                                 <option value="">Sem link de Demo</option>
                             </select>
                         </div>
                         <div class="form-group" style="flex:1;">
-                            <label>Script (Roteiro)</label>
+                            <label>Script (Copy High-Ticket)</label>
                             <select id="scriptSelect">
-                                <option value="msg1">1. Foco no Google (Decisão)</option>
+                                <option value="auditoria">1. Auditoria (Problema Google)</option>
                                 <option value="msg2">2. Presença Online (Conversão)</option>
-                                <option value="followup">3. Follow-up (Retomada)</option>
+                                <option value="envio_demo">3. Demo Ancorado (Solução)</option>
+                                <option value="followup">4. Follow-up 48h (Retomada)</option>
                             </select>
                         </div>
                     </div>
@@ -130,8 +142,9 @@
                     <p>O cliente respondeu com objeção? Clique e envie a resposta pré-montada.</p>
                     <div class="objections-grid">
                         <button class="btn btn-sm btn-outline btn-objection" data-type="site">Já tenho site</button>
+                        <button class="btn btn-sm btn-outline btn-objection" data-type="agencia">Já tenho Agência</button>
+                        <button class="btn btn-sm btn-outline btn-objection" data-type="socio">Vou falar com Sócio</button>
                         <button class="btn btn-sm btn-outline btn-objection" data-type="caro">Tá caro / Sem Verba</button>
-                        <button class="btn btn-sm btn-outline btn-objection" data-type="interesse">Não tenho interesse</button>
                     </div>
                 </div>
                 
