@@ -42,3 +42,10 @@ Nenhum projeto pode parecer um template genérico ou barato. Todo site gerado de
 A IA deve sempre incluir nativamente:
 - **"Frescurinhas" e Micro-interações Mágicas:** Animações avançadas (como fade-ups no scroll), botões magnéticos, efeitos de hover sutis, sobreposições de vidro (glassmorphism), overlays de gradiente macios e tipografia refinada. A interface precisa parecer "viva" e despertar o fator "WOW".
 - **Responsividade Máxima (Mobile-First):** O design DEVE ser pensado com a perfeição mobile desde o primeiro código. Ajustes milimétricos de padding, margens amigáveis para touch e ausência absoluta de bugs visuais em telas pequenas são inegociáveis. O projeto precisa renderizar perfeitamente no celular sob qualquer condição.
+
+## 7. Assinaturas e Elementos Obrigatórios de Conversão 🚀
+Além do layout premium estilizado, todo projeto Pixelize deve conter sem falta:
+- **Assinatura no Footer:** Presença obrigatória da tag *"Desenvolvido por Pixelize"* no rodapé estilizado, com link apropriado para a agência.
+- **Botão de WhatsApp Flutuante:** Ícone magnético / animado fixo (bottom-right), configurado com link de API (`wa.me`) pronto para receber mensagens do lead.
+- **Proibição de Placeholders:** Quadros cinzas vazios são expressamente proibidos. A IA deve buscar e aplicar instantaneamente fotos reais premium de alta qualidade (via Unsplash, Pexels, etc.) que façam sentido estético para a marca logo no primeiro render.
+- **Carga Rápida e Copy Focada:** Código semântico limpo, foco em um único "H1" poderoso, botões Call To Action diretos e otimização para carregamento assíncrono (lazy-load ou preload inteligente de assets).
