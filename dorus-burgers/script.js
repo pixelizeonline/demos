@@ -133,7 +133,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.getElementById('navLinks');
     const menuOverlay = document.getElementById('menuOverlay');
 
-    // Note: Due to lack of extensive Mobile Nav HTML structure in boilerplate, 
-    // a simple toggle or anchor scroll behavior is acceptable for display purposes.
-    // Smooth scrolling is handled via CSS scroll-behavior: smooth.
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            if(menuOverlay) menuOverlay.classList.toggle('active');
+        });
+    }
+
+    if (menuOverlay) {
+        menuOverlay.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            menuOverlay.classList.remove('active');
+        });
+    }
+
+    const links = navLinks.querySelectorAll('a');
+    links.forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            if(menuOverlay) menuOverlay.classList.remove('active');
+        });
+    });
 });
