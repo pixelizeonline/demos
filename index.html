@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Pixelize - Agência de Presença Digital e Posicionamento no Google para empresas locais.">
-    <title>Pixelize | Agência de Presença Digital</title>
+    <title>Pixelize | Agência de Presença Digital & Performance</title>
     
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
@@ -19,8 +19,25 @@
 </head>
 <body>
 
+    <!-- Marquee Banner (Entregamos em minutos) -->
+    <div class="marquee-container">
+        <div class="marquee-content">
+            <!-- Repetição para efeito infinito -->
+            <span><i class="fa-solid fa-bolt"></i> ENTREGAMOS A SUA PÁGINA EM MINUTOS</span>
+            <span><i class="fa-solid fa-rocket"></i> SETUP IMEDIATO E ALTA CONVERSÃO</span>
+            <span><i class="fa-solid fa-bolt"></i> ENTREGAMOS A SUA PÁGINA EM MINUTOS</span>
+            <span><i class="fa-solid fa-rocket"></i> SETUP IMEDIATO E ALTA CONVERSÃO</span>
+            <span><i class="fa-solid fa-bolt"></i> ENTREGAMOS A SUA PÁGINA EM MINUTOS</span>
+            <span><i class="fa-solid fa-rocket"></i> SETUP IMEDIATO E ALTA CONVERSÃO</span>
+            <span><i class="fa-solid fa-bolt"></i> ENTREGAMOS A SUA PÁGINA EM MINUTOS</span>
+            <span><i class="fa-solid fa-rocket"></i> SETUP IMEDIATO E ALTA CONVERSÃO</span>
+            <span><i class="fa-solid fa-bolt"></i> ENTREGAMOS A SUA PÁGINA EM MINUTOS</span>
+            <span><i class="fa-solid fa-rocket"></i> SETUP IMEDIATO E ALTA CONVERSÃO</span>
+        </div>
+    </div>
+
     <!-- Header fixo -->
-    <header id="header">
+    <header id="header" class="has-marquee">
         <div class="container header-container">
             <a href="#" class="logo">
                 <span class="logo-icon"><i class="fa-solid fa-bolt"></i></span>
@@ -30,16 +47,16 @@
             <nav class="main-nav">
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
-                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#servicos">Especialidades</a></li>
                     <li><a href="#portfolio">Portfólio</a></li>
-                    <li><a href="#como-funciona">Como Funciona</a></li>
+                    <li><a href="#seguranca">Segurança</a></li>
                     <li><a href="#contato">Contato</a></li>
                 </ul>
             </nav>
             
             <div class="header-cta">
-                <a href="https://wa.me/5521999558001" class="btn btn-outline whatsapp-btn" target="_blank">
-                    <i class="fa-brands fa-whatsapp"></i> Falar no WhatsApp
+                <a href="https://wa.me/5521999558001" class="btn btn-outline whatsapp-btn premium-hover" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i> Iniciar Projeto
                 </a>
             </div>
 
@@ -54,52 +71,82 @@
     <div class="mobile-menu-overlay">
         <ul class="mobile-nav-links">
             <li><a href="#home">Home</a></li>
-            <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#servicos">Especialidades</a></li>
             <li><a href="#portfolio">Portfólio</a></li>
-            <li><a href="#como-funciona">Como Funciona</a></li>
+            <li><a href="#seguranca">Segurança</a></li>
             <li><a href="#contato">Contato</a></li>
             <li>
-                <a href="https://wa.me/5521999558001" class="btn btn-primary whatsapp-btn-mobile" target="_blank">
-                    <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                <a href="https://wa.me/5521999558001" class="btn btn-primary whatsapp-btn-mobile premium-hover" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i> Iniciar Projeto
                 </a>
             </li>
         </ul>
     </div>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
+    <!-- Hero Section Premium -->
+    <section id="home" class="hero hero-premium">
         <div class="hero-bg-elements">
-            <div class="glow glow-1"></div>
-            <div class="glow glow-2"></div>
+            <div class="glow glow-1 pulse-anim"></div>
+            <div class="glow glow-2 pulse-anim" style="animation-delay: 2s;"></div>
+            <div class="grid-overlay"></div>
         </div>
-        <div class="container hero-container">
+        <div class="container hero-container premium-hero-grid">
             <div class="hero-content fade-in-up">
-                <div class="badge">Presença Digital Profissional</div>
-                <h1>Transformamos empresas locais em <span class="text-gradient">marcas digitais profissionais.</span></h1>
-                <p class="hero-subtitle">Sites modernos e presença digital estratégica para empresas que querem crescer, gerar mais contatos e ser a primeira escolha no Google.</p>
+                <div class="badge premium-badge">
+                    <span class="pulse-dot"></span> Agência Full-Service de Elite
+                </div>
+                <h1>A engenharia por trás de <span class="text-gradient animated-gradient">marcas que dominam</span> o mercado.</h1>
+                <p class="hero-subtitle">Design de alto padrão, velocidade extrema e conversão validada. Construímos ecossistemas digitais impenetráveis para líderes de mercado locais.</p>
                 <div class="hero-buttons">
-                    <a href="#contato" class="btn btn-primary btn-large">Solicitar análise gratuita</a>
+                    <a href="#contato" class="btn btn-primary btn-large premium-btn-effect">Liberar Potencial Máximo</a>
                     <a href="https://wa.me/5521999558001" class="btn btn-secondary btn-large" target="_blank">
-                        <i class="fa-brands fa-whatsapp"></i> Falar no WhatsApp
+                        <i class="fa-brands fa-whatsapp"></i> Falar com Estrategista
                     </a>
                 </div>
-                <div class="hero-social-proof">
+                <div class="hero-social-proof premium-proof">
                     <div class="avatars">
                         <img src="https://i.pravatar.cc/100?img=11" alt="Cliente satisfeito">
                         <img src="https://i.pravatar.cc/100?img=32" alt="Cliente satisfeito">
                         <img src="https://i.pravatar.cc/100?img=12" alt="Cliente satisfeito">
                     </div>
-                    <span class="proof-text">Empresas locais já transformadas</span>
+                    <div class="proof-content">
+                        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <span class="proof-text">Mais de 150 projetos validados</span>
+                    </div>
                 </div>
             </div>
-            <div class="hero-visual fade-in-up delay-1">
-                <div class="glass-panel mockup-window">
-                    <div class="mockup-header">
-                        <div class="dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
-                        <div class="url-bar">www.suaempresa.com.br</div>
+            <div class="hero-visual premium-visual fade-in-up delay-1">
+                <!-- 3D Floating Elements Showcase -->
+                <div class="floating-showcase">
+                    <div class="glass-panel mockup-main float-anim">
+                        <div class="mockup-header">
+                            <div class="dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+                            <div class="url-bar"><i class="fa-solid fa-lock text-primary"></i> scale.pixelize.com.br</div>
+                        </div>
+                        <div class="mockup-body" style="padding: 0;">
+                            <img src="assets/img/hero_abstract.png" alt="Dashboard" style="width: 100%; height: 100%; object-fit: cover;">
+                            <div class="overlay-stats">
+                                <div class="stat-mini">
+                                    <i class="fa-solid fa-bolt"></i> 99/100
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="mockup-body" style="padding: 0;">
-                        <img src="assets/img/hero_abstract.png" alt="Conceito Digital Pixelize" style="width: 100%; height: auto; display: block;">
+                    
+                    <!-- Floating Cards -->
+                    <div class="floating-card perf-card float-anim-delayed">
+                        <i class="fa-solid fa-gauge-high"></i>
+                        <div class="fc-text">
+                            <span>Performance</span>
+                            <strong>A+ Grade</strong>
+                        </div>
+                    </div>
+                    <div class="floating-card conv-card float-anim-delayed-2">
+                        <i class="fa-solid fa-arrow-trend-up"></i>
+                        <div class="fc-text">
+                            <span>Conversão</span>
+                            <strong>+340%</strong>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -110,240 +157,226 @@
     <section id="problema" class="problema section">
         <div class="container">
             <div class="section-header text-center fade-in-up">
-                <h2 class="section-title">Por que sua empresa não está crescendo?</h2>
-                <p class="section-description">A falta de profissionalismo na internet afasta os clientes todos os dias.</p>
+                <h2 class="section-title">A mediocridade digital custa <span class="text-gradient">caro</span>.</h2>
+                <p class="section-description">Como negócios de alto potencial perdem para concorrentes inferiores.</p>
             </div>
             
             <div class="cards-grid problem-cards">
                 <div class="card problem-card fade-in-up hover-lift">
                     <div class="glow-bg error-glow"></div>
-                    <div class="card-icon error"><i class="fa-solid fa-triangle-exclamation"></i></div>
-                    <h3>Empresas sem site profissional</h3>
-                    <p>Sem um site, sua empresa parece amadora ou desatualizada. Clientes buscam credibilidade antes de comprar.</p>
+                    <div class="card-icon error"><i class="fa-solid fa-hourglass-empty"></i></div>
+                    <h3>Lentidão que mata</h3>
+                    <p>53% dos usuários abandonam sites que demoram mais de 3 segundos para carregar. Nós entregamos páginas ultrarrápidas quase instantaneamente.</p>
                 </div>
                 <div class="card problem-card fade-in-up delay-1 hover-lift">
                     <div class="glow-bg error-glow"></div>
-                    <div class="card-icon error"><i class="fa-solid fa-ghost"></i></div>
-                    <h3>Baixa presença digital</h3>
-                    <p>Não ser encontrado quando o cliente pesquisa pelo seu serviço é deixar dinheiro na mesa diariamente.</p>
+                    <div class="card-icon error"><i class="fa-solid fa-user-ninja"></i></div>
+                    <h3>Invisibilidade local</h3>
+                    <p>Ser a "jóia escondida" da cidade não paga boletos. O Google prioriza quem joga pelas regras dele com SEO profissional.</p>
                 </div>
                 <div class="card problem-card fade-in-up delay-2 hover-lift">
                     <div class="glow-bg error-glow"></div>
-                    <div class="card-icon error"><i class="fa-solid fa-arrow-trend-down"></i></div>
-                    <h3>Concorrentes mais visíveis</h3>
-                    <p>Seu concorrente com um site melhor e mais bem posicionado está levando os clientes que deveriam ser seus.</p>
+                    <div class="card-icon error"><i class="fa-solid fa-shield-virus"></i></div>
+                    <h3>Falta de credibilidade</h3>
+                    <p>Design amador e falta de selos de segurança (SSL) geram desconfiança imediata. Clientes premium exigem experiências premium.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Solução Section -->
-    <section id="solucao" class="solucao section bg-light">
+    <!-- Solução / 100k Feature Bento Grid Section -->
+    <section id="servicos" class="servicos section bg-darker">
         <div class="container">
-            <div class="solucao-layout">
-                <div class="solucao-visual fade-in-up">
-                    <div class="glass-card solution-highlight">
-                        <div class="stat">
-                            <span class="stat-number text-gradient">+300%</span>
-                            <span class="stat-label">Aumento na percepção de valor</span>
-                        </div>
-                        <div class="chart-mockup">
-                            <div class="bar bar-1"></div>
-                            <div class="bar bar-2"></div>
-                            <div class="bar bar-3"></div>
-                            <div class="bar bar-4 highlight"></div>
-                        </div>
+            <div class="section-header text-center fade-in-up">
+                <span class="badge">A Engenharia Pixelize</span>
+                <h2 class="section-title">Arquitetura de <span class="text-gradient animated-gradient">Alto Padrão</span></h2>
+                <p class="section-description">Nós não fazemos curativos. Nós construímos sistemas de aquisição robustos que mudam o jogo.</p>
+            </div>
+            
+            <div class="bento-grid">
+                <!-- Large Item -->
+                <div class="bento-item bento-large fade-in-up">
+                    <div class="bento-glow-bg"></div>
+                    <div class="bento-content">
+                        <div class="bento-icon"><i class="fa-solid fa-gauge-max"></i></div>
+                        <h3>Entrega e Performance em Minutos</h3>
+                        <p>Nossa infraestrutura pré-renderizada e frameworks otimizados nos permitem compilar e colocar no ar landing pages complexas, com rastreamento ativo e layouts premium <strong class="text-white">em frações do tempo do mercado padrão</strong>. Velocidade sem precedentes, qualidade inegociável.</p>
+                    </div>
+                    <div class="bento-visual tech-chart">
+                        <div class="speed-bar"><div class="speed-fill" style="width: 98%;"></div></div>
+                        <div class="speed-bar"><div class="speed-fill" style="width: 85%;"></div></div>
+                        <div class="speed-bar"><div class="speed-fill" style="width: 100%; background: var(--accent);"></div></div>
                     </div>
                 </div>
-                <div class="solucao-content fade-in-up delay-1">
-                    <h2 class="section-title">A Pixelize é a solução para o <span class="text-gradient">crescimento</span> do seu negócio</h2>
-                    <p class="section-description">Ajudamos empresas locais a se destacarem e atraírem mais clientes qualificados através de uma presença digital impecável.</p>
+
+                <!-- Tall Item -->
+                <div class="bento-item bento-tall fade-in-up delay-1">
+                    <div class="bento-glow-bg"></div>
+                    <div class="bento-content">
+                        <div class="bento-icon"><i class="fa-brands fa-google"></i></div>
+                        <h3>Dominação Local (SEO)</h3>
+                        <p>Estratégias avançadas de posicionamento orgânico e estruturação de Google Meu Negócio. Nós tornamos você a resposta óbvia para quem pesquisa seus serviços.</p>
+                    </div>
+                    <div class="bento-visual map-mockup">
+                        <div class="pin pulse-anim"></div>
+                    </div>
+                </div>
+
+                <!-- Small Items -->
+                <div class="bento-item fade-in-up delay-2">
+                    <div class="bento-glow-bg"></div>
+                    <div class="bento-content">
+                        <div class="bento-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                        <h3>Design de $100k</h3>
+                        <p>Estética premium com micro-interações, glassmorphism e tipografia de alto nível. Aumente o valor percebido da sua marca.</p>
+                    </div>
+                </div>
+
+                <div class="bento-item fade-in-up delay-3">
+                    <div class="bento-glow-bg"></div>
+                    <div class="bento-content">
+                        <div class="bento-icon"><i class="fa-solid fa-filter-circle-dollar"></i></div>
+                        <h3>Landing Pages de Elite</h3>
+                        <p>Páginas desenhadas especificamente para converter tráfego pago em reuniões e vendas no WhatsApp.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: Segurança e Infraestrutura Section -->
+    <section id="seguranca" class="seguranca section">
+        <div class="container">
+            <div class="security-layout">
+                <div class="security-visual fade-in-up">
+                    <div class="shield-container">
+                        <div class="shield-glow pulse-anim"></div>
+                        <i class="fa-solid fa-shield-halved master-shield"></i>
+                        <div class="floating-badge fb-1"><i class="fa-solid fa-lock"></i> SSL</div>
+                        <div class="floating-badge fb-2"><i class="fa-solid fa-server"></i> CDN</div>
+                        <div class="floating-badge fb-3"><i class="fa-solid fa-file-contract"></i> LGPD</div>
+                    </div>
+                </div>
+                <div class="security-content fade-in-up delay-1">
+                    <span class="badge badge-secure"><i class="fa-solid fa-lock"></i> Nível Bancário</span>
+                    <h2 class="section-title">Segurança e Dados <span class="text-gradient">Blindados</span></h2>
+                    <p class="section-description">A confiança do seu cliente começa antes do primeiro "Olá". Entregamos infraestrutura robusta de ponta a ponta.</p>
                     
-                    <ul class="benefits-list">
-                        <li>
-                            <i class="fa-solid fa-circle-check text-primary"></i>
+                    <div class="sec-features">
+                        <div class="sec-feature">
+                            <div class="sec-icon"><i class="fa-solid fa-certificate"></i></div>
                             <div>
-                                <strong>Parecer mais profissional na internet</strong>
-                                <p>Sites com design premium que transmitem confiança instantânea.</p>
+                                <strong>Criptografia SSL/TLS de 256 bits</strong>
+                                <p>Selo de site seguro ativo 24/7. Transações e dados interceptados são matematicamente impossíveis.</p>
                             </div>
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-circle-check text-primary"></i>
+                        </div>
+                        <div class="sec-feature">
+                            <div class="sec-icon"><i class="fa-solid fa-scale-balanced"></i></div>
                             <div>
-                                <strong>Aparecer melhor no Google</strong>
-                                <p>Otimização para que clientes locais encontrem você primeiro.</p>
+                                <strong>Adequação LGPD Automática</strong>
+                                <p>Políticas de privacidade, termos de uso e banners de cookies integrados por padrão no seu ecossistema.</p>
                             </div>
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-circle-check text-primary"></i>
+                        </div>
+                        <div class="sec-feature">
+                            <div class="sec-icon"><i class="fa-solid fa-cloud-bolt"></i></div>
                             <div>
-                                <strong>Gerar mais contatos</strong>
-                                <p>Estrutura focada em facilitar o contato via WhatsApp.</p>
+                                <strong>Anti-DDoS e CDN Global</strong>
+                                <p>Seu site protegido contra ataques maliciosos e entregue pelos servidores mais rápidos do mundo.</p>
                             </div>
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-circle-check text-primary"></i>
-                            <div>
-                                <strong>Transformar visitantes em clientes</strong>
-                                <p>Textos e layouts projetados para conversão e vendas.</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Serviços Section -->
-    <section id="servicos" class="servicos section">
-        <div class="container">
-            <div class="section-header text-center fade-in-up">
-                <span class="badge">O que fazemos</span>
-                <h2 class="section-title">Nossas <span class="text-gradient">Soluções</span></h2>
-                <p class="section-description">Tudo que seu negócio precisa para dominar o mercado local.</p>
-            </div>
-            
-            <div class="cards-grid services-cards">
-                <div class="card service-card fade-in-up hover-lift">
-                    <div class="card-icon gradient"><i class="fa-solid fa-laptop-code"></i></div>
-                    <h3>Criação de Sites Profissionais</h3>
-                    <p>Desenvolvimento de sites rápidos, modernos e responsivos (funcionam perfeitamente em celulares e computadores).</p>
-                </div>
-                <div class="card service-card fade-in-up delay-1 hover-lift">
-                    <div class="card-icon gradient"><i class="fa-solid fa-rocket"></i></div>
-                    <h3>Presença Digital para Empresas</h3>
-                    <p>Construção de uma identidade forte e consistente em todos os pontos de contato online do seu negócio.</p>
-                </div>
-                <div class="card service-card fade-in-up delay-2 hover-lift">
-                    <div class="card-icon gradient"><i class="fa-brands fa-google"></i></div>
-                    <h3>Posicionamento no Google</h3>
-                    <p>Técnicas avançadas de SEO e configuração de Google Meu Negócio para você dominar as buscas locais.</p>
-                </div>
-                <div class="card service-card fade-in-up delay-3 hover-lift">
-                    <div class="card-icon gradient"><i class="fa-solid fa-magnet"></i></div>
-                    <h3>Landing Pages de Conversão</h3>
-                    <p>Páginas de alta conversão criadas especificamente para campanhas de anúncios e captação de leads.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Como Funciona Section -->
-    <section id="como-funciona" class="como-funciona section bg-darker">
-        <div class="container">
-            <div class="section-header text-center fade-in-up">
-                <h2 class="section-title text-white">Como Funciona</h2>
-                <p class="section-description text-gray">Um processo simples e transparente, sem complicação técnica para você.</p>
-            </div>
-            
-            <div class="steps-container">
-                <div class="step fade-in-up">
-                    <div class="step-number">1</div>
-                    <h3>Análise da empresa</h3>
-                    <p>Entendemos seu negócio, seus concorrentes e seus objetivos para criar uma estratégia sob medida.</p>
-                </div>
-                <div class="step fade-in-up delay-1">
-                    <div class="step-number">2</div>
-                    <h3>Criação de demonstração</h3>
-                    <p>Criamos um layout inicial do site para você visualizar como sua marca se portará online.</p>
-                </div>
-                <div class="step fade-in-up delay-2">
-                    <div class="step-number">3</div>
-                    <h3>Ajustes personalizados</h3>
-                    <p>Refinamos o design, adicionamos seus textos, imagens e configuramos todos os botões de contato.</p>
-                </div>
-                <div class="step fade-in-up delay-3">
-                    <div class="step-number">4</div>
-                    <h3>Publicação no domínio</h3>
-                    <p>Colocamos seu site no ar (www.suaempresa.com.br), rápido e otimizado para o Google.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Portfólio Section -->
-    <section id="portfolio" class="portfolio section">
+    <section id="portfolio" class="portfolio section bg-darker">
         <div class="container">
             <div class="section-header text-center fade-in-up">
-                <h2 class="section-title">Portfólio & <span class="text-gradient">Demonstrações</span></h2>
-                <p class="section-description">Sites criados para mostrar como empresas locais podem aparecer de forma profissional na internet.</p>
+                <h2 class="section-title">Projetos de <span class="text-gradient">Alta Performance</span></h2>
+                <p class="section-description">Onde a estética refinada encontra métricas esmagadoras.</p>
             </div>
             
             <div class="portfolio-grid">
-                <div class="portfolio-item fade-in-up">
+                <div class="portfolio-item hover-3d fade-in-up">
                     <div class="portfolio-image">
                         <div class="portfolio-overlay">
-                            <span class="portfolio-category">Clínica Odontológica</span>
+                            <div>
+                                <span class="portfolio-category">Clínica Odontológica Premium</span>
+                                <p class="portfolio-stat">+420% em Leads Qualificados</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="portfolio-item fade-in-up delay-1">
+                <div class="portfolio-item hover-3d fade-in-up delay-1">
                     <div class="portfolio-image img-2">
                         <div class="portfolio-overlay">
-                            <span class="portfolio-category">Escritório de Advocacia</span>
+                            <div>
+                                <span class="portfolio-category">Boutique Law Firm</span>
+                                <p class="portfolio-stat">Autoridade e Posicionamento VIP</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="portfolio-item fade-in-up delay-2">
+                <div class="portfolio-item hover-3d fade-in-up delay-2">
                     <div class="portfolio-image img-3">
                         <div class="portfolio-overlay">
-                            <span class="portfolio-category">Empreiteira & Reformas</span>
+                            <div>
+                                <span class="portfolio-category">Incorporadora de Luxo</span>
+                                <p class="portfolio-stat">Custo por Lead reduzido em 65%</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="text-center mt-4 fade-in-up delay-3">
-                <a href="#contato" class="btn btn-outline btn-large">Ver mais demonstrações</a>
             </div>
         </div>
     </section>
 
     <!-- Social Proof Section -->
-    <section class="testimonials section bg-light">
+    <section class="testimonials section">
         <div class="container">
             <div class="section-header text-center fade-in-up">
-                <h2 class="section-title">O que dizem os empresários</h2>
-                <p class="section-description">Empresas locais transformadas pela Pixelize.</p>
+                <h2 class="section-title">O impacto <span class="text-gradient">comprovado</span></h2>
             </div>
             
             <div class="cards-grid testimonial-cards">
-                <div class="card testimonial-card fade-in-up hover-lift">
+                <div class="card testimonial-card fade-in-up hover-lift bento-glow-effect">
                     <div class="stars">
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
-                    <p class="quote">"Antes nosso site parecia ter sido feito nos anos 2000. A Pixelize mudou nossa imagem do dia para a noite. Agora fechamos mais orçamentos porque os clientes sentem confiança logo de cara."</p>
+                    <p class="quote">"Fiquei assustado com a velocidade. Prometeram em minutos e a estrutura já estava no ar rastreando tudo. O design grita 'cobramos caro' e nossos clientes adoram."</p>
                     <div class="client-info">
                         <img src="https://i.pravatar.cc/150?img=11" alt="Carlos Eduardo" class="client-avatar">
                         <div>
                             <strong>Carlos Eduardo</strong>
-                            <span>Dono de Oficina Automotiva</span>
+                            <span>Dono de Oficina Automotiva Premium</span>
                         </div>
                     </div>
                 </div>
-                <div class="card testimonial-card fade-in-up delay-1 hover-lift">
+                <div class="card testimonial-card fade-in-up delay-1 hover-lift bento-glow-effect">
                     <div class="stars">
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
-                    <p class="quote">"O botão de WhatsApp no novo site mudou nosso faturamento. Praticamente dobramos os contatos diários de pessoas da nossa cidade procurando por nossos serviços no Google."</p>
+                    <p class="quote">"O nível de segurança implementado com os selos e o design de alto padrão nos ajudou a fechar contratos corporativos que antes desconfiavam do nosso antigo site."</p>
                     <div class="client-info">
                         <img src="https://i.pravatar.cc/150?img=43" alt="Mariana Silva" class="client-avatar">
                         <div>
                             <strong>Mariana Silva</strong>
-                            <span>Clínica de Estética</span>
+                            <span>CEO de Clínica Master de Estética</span>
                         </div>
                     </div>
                 </div>
-                <div class="card testimonial-card fade-in-up delay-2 hover-lift">
+                <div class="card testimonial-card fade-in-up delay-2 hover-lift bento-glow-effect">
                     <div class="stars">
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
-                    <p class="quote">"O Kleyton foi extremamente profissional. Entregou um site super rápido, moderno e finalmente começamos a aparecer nas buscas regionais. Super recomendo!"</p>
+                    <p class="quote">"Eles não apenas entregam um 'site'. Entregam uma máquina desenhada em cada pixel para forçar a pessoa do outro lado a nos chamar no WhatsApp. Fantástico!"</p>
                     <div class="client-info">
                         <img src="https://i.pravatar.cc/150?img=33" alt="Roberto Alves" class="client-avatar">
                         <div>
                             <strong>Roberto Alves</strong>
-                            <span>Contabilidade</span>
+                            <span>Sócio em Consultoria Financeira</span>
                         </div>
                     </div>
                 </div>
@@ -351,83 +384,84 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- Premium CTA Section -->
     <section class="cta section">
         <div class="container">
-            <div class="cta-box glass-card fade-in-up">
+            <div class="cta-box glass-card fade-in-up premium-cta">
                 <div class="cta-bg-elements">
-                    <div class="glow cta-glow-1"></div>
-                    <div class="glow cta-glow-2"></div>
+                    <div class="glow cta-glow-1 pulse-anim"></div>
+                    <div class="glow cta-glow-2 pulse-anim" style="animation-delay: 1.5s;"></div>
                     <div class="cta-grid-pattern"></div>
                 </div>
                 
                 <div class="cta-content">
-                    <div class="badge cta-badge">Não perca mais tempo</div>
-                    <h2 class="cta-title">Sua empresa merece uma <span class="text-gradient d-block">presença digital profissional</span></h2>
-                    <p class="cta-desc">Pare de perder clientes para a concorrência. Mais de <strong>85% das pessoas</strong> pesquisam no Google antes de comprar. Dê o próximo passo e domine sua região.</p>
+                    <div class="badge cta-badge"><i class="fa-solid fa-bolt text-accent"></i> Execução Imediata</div>
+                    <h2 class="cta-title">A ascensão da sua marca <span class="text-gradient d-block animated-gradient">começa neste exato segundo</span></h2>
+                    <p class="cta-desc">Pare de disputar preço com amadores enquanto o seu design comunica mediocridade. Elevamos o padrão da sua presença corporativa com tecnologia de ponta e implementação extremamente rápida.</p>
                     
                     <div class="cta-actions">
-                        <a href="#contato" class="btn btn-primary btn-large cta-primary-btn">
-                            Construir minha marca <i class="fa-solid fa-arrow-right"></i>
+                        <a href="https://wa.me/5521999558001" class="btn btn-primary btn-large cta-primary-btn premium-btn-effect" target="_blank">
+                            Comandar Presença Exclusiva <i class="fa-solid fa-arrow-right"></i>
                         </a>
-                        <a href="https://wa.me/5521999558001" class="btn btn-outline btn-large cta-outline-btn" target="_blank">
-                            <i class="fa-brands fa-whatsapp"></i> Tirar dúvidas no WhatsApp
+                        <a href="#contato" class="btn btn-outline btn-large cta-outline-btn">
+                            <i class="fa-solid fa-calendar-check"></i> Agendar Auditoria Gratuita
                         </a>
                     </div>
                 </div>
                 
-                <div class="cta-floating cta-float-1"><i class="fa-solid fa-rocket"></i></div>
-                <div class="cta-floating cta-float-2"><i class="fa-solid fa-chart-line"></i></div>
+                <div class="cta-floating cta-float-1"><i class="fa-solid fa-cube"></i></div>
+                <div class="cta-floating cta-float-2"><i class="fa-solid fa-shield-halved"></i></div>
                 <div class="cta-floating cta-float-3"><i class="fa-brands fa-google"></i></div>
-                <div class="cta-floating cta-float-4"><i class="fa-solid fa-star"></i></div>
+                <div class="cta-floating cta-float-4"><i class="fa-solid fa-gem"></i></div>
             </div>
         </div>
     </section>
 
     <!-- Contato Section -->
-    <section id="contato" class="contato section">
+    <section id="contato" class="contato section bg-darker">
         <div class="container">
             <div class="contato-layout">
                 <div class="contato-info fade-in-up">
-                    <h2 class="section-title">Vamos conversar sobre o seu negócio?</h2>
-                    <p class="section-description">Tire suas dúvidas, solicite uma análise gratuita ou peça um orçamento sem compromisso.</p>
+                    <h2 class="section-title">Pronto para a <span class="text-gradient">Evolução</span>?</h2>
+                    <p class="section-description">O mercado não espera retardatários. Fale com nosso time de especialistas em conversão e comece o seu projeto na velocidade da luz.</p>
                     
-                    <div class="contact-details">
+                    <div class="contact-details premium-contact">
                         <div class="contact-item">
-                            <div class="contact-icon"><i class="fa-brands fa-whatsapp"></i></div>
+                            <div class="contact-icon glowing-icon"><i class="fa-brands fa-whatsapp"></i></div>
                             <div>
-                                <span>Telefone / WhatsApp</span>
+                                <span>Linha Direta / WhatsApp</span>
                                 <strong>21 99955-8001</strong>
                             </div>
                         </div>
                         <div class="contact-item">
-                            <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="contact-icon glowing-icon"><i class="fa-solid fa-location-dot"></i></div>
                             <div>
-                                <span>Endereço</span>
+                                <span>Headquarters</span>
                                 <strong>Rua Dezesseis, Maricá - RJ</strong>
                             </div>
                         </div>
                         <div class="contact-item">
-                            <div class="contact-icon"><i class="fa-solid fa-user-tie"></i></div>
+                            <div class="contact-icon glowing-icon"><i class="fa-solid fa-shield-check"></i></div>
                             <div>
-                                <span>Responsável</span>
-                                <strong>Kleyton (Fundador)</strong>
+                                <span>Acesso Direto</span>
+                                <strong>Atendimento Executivo Prioritário</strong>
                             </div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="contato-action fade-in-up delay-1">
-                    <div class="glass-card contact-card">
-                        <h3>Fale conosco agora</h3>
-                        <p>O jeito mais rápido de ser atendido é pelo WhatsApp. Nossa equipe responde em minutos.</p>
+                    <div class="glass-card contact-card premium-glass">
+                        <div class="live-status"><span class="pulse-dot green"></span> Especialistas Online Agora</div>
+                        <h3>Solicite o seu Passe de Alta Conversão</h3>
+                        <p>A resposta que faltava para ultrapassar a concorrência local está a um clique de distância.</p>
                         
-                        <a href="https://wa.me/5521999558001" class="btn btn-whatsapp btn-large w-100" target="_blank">
-                            <i class="fa-brands fa-whatsapp"></i> Chamar no WhatsApp
+                        <a href="https://wa.me/5521999558001" class="btn btn-whatsapp btn-large w-100 premium-btn-effect" target="_blank">
+                            <i class="fa-brands fa-whatsapp"></i> Iniciar Atendimento VIP
                         </a>
                         
-                        <div class="contact-footer-note">
-                            <i class="fa-solid fa-shield-halved"></i> Seus dados estão seguros conosco.
+                        <div class="contact-footer-note mt-4 text-center d-flex justify-content-center">
+                            <span class="badge badge-secure" style="margin: 0 auto;"><i class="fa-solid fa-lock"></i> Dados Criptografados de Ponta a Ponta</span>
                         </div>
                     </div>
                 </div>
@@ -444,30 +478,35 @@
                         <span class="logo-icon"><i class="fa-solid fa-bolt"></i></span>
                         Pixelize
                     </a>
-                    <p>Agência de Presença Digital e Posicionamento no Google.</p>
+                    <p>Engenharia de Presença Digital de Alto Padrão. Construído para dominar o Google e pulverizar a concorrência.</p>
+                    <div class="footer-security-badges mt-3">
+                        <i class="fa-brands fa-aws text-gray" title="Hospedagem Premium"></i>
+                        <i class="fa-solid fa-shield-halved text-gray mx-2" title="SSL Seguro"></i>
+                        <i class="fa-solid fa-lock text-gray" title="LGPD Compliance"></i>
+                    </div>
                 </div>
                 
                 <div class="footer-links">
-                    <h3>Menu</h3>
+                    <h3>Navegação</h3>
                     <ul>
                         <li><a href="#home">Home</a></li>
-                        <li><a href="#servicos">Serviços</a></li>
-                        <li><a href="#portfolio">Portfólio</a></li>
-                        <li><a href="#como-funciona">Como Funciona</a></li>
+                        <li><a href="#servicos">A Engenharia</a></li>
+                        <li><a href="#seguranca">Infraestrutura</a></li>
+                        <li><a href="#portfolio">Casos de Sucesso</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-contact">
-                    <h3>Contato</h3>
+                    <h3>Suporte Executivo</h3>
                     <p>Maricá RJ</p>
-                    <p><a href="https://wa.me/5521999558001" target="_blank"><i class="fa-brands fa-whatsapp"></i> 21 99955-8001</a></p>
+                    <p><a href="https://wa.me/5521999558001" target="_blank" class="highlight-link"><i class="fa-brands fa-whatsapp"></i> 21 99955-8001</a></p>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; <span id="current-year"></span> Pixelize. Todos os direitos reservados.</p>
-                <div class="made-by">
-                    Desenvolvido por Pixelize
+                <p>&copy; <span id="current-year"></span> Pixelize Agência. Direitos Reservados Globalmente.</p>
+                <div class="made-by text-gradient fw-bold">
+                    Engenharia com velocidade por Pixelize
                 </div>
             </div>
         </div>
