@@ -249,20 +249,28 @@ input, select {
 }
 
 /* Active Form & Preview */
-.active-prospect-card {
-    background: #F8FAFC;
-    border: 1px solid #E2E8F0;
-    border-radius: var(--radius-md);
-    padding: 20px;
-    margin-bottom: 25px;
-}
-
 .preview-box {
     background: #F0FDF4; 
     border: 1px solid #BBF7D0;
     padding: 15px;
     border-radius: var(--radius-md);
     margin: 20px 0;
+    transition: all 0.3s ease;
+}
+
+.active-prospect-card {
+    transition: border-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+@keyframes pulse-highlight {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+.pulse-active {
+    animation: pulse-highlight 1.5s ease-out;
+    border-color: var(--primary) !important;
 }
 
 .preview-box strong {
@@ -283,15 +291,15 @@ input, select {
 
 /* Objections Panel */
 .objections-panel {
-    background: #FEF2F2;
-    border: 1px solid #FECACA;
+    background: #fdf2f2;
+    border: 1px solid #fee2e2;
     border-radius: var(--radius-md);
     padding: 20px;
 }
 
 .objections-panel h3 {
     font-size: 1rem;
-    color: #991B1B;
+    color: #991b1b;
     display: flex;
     align-items: center;
     gap: 5px;
@@ -300,7 +308,7 @@ input, select {
 
 .objections-panel p {
     font-size: 0.85rem;
-    color: #B91C1C;
+    color: #b91c1c;
     margin-bottom: 15px;
 }
 

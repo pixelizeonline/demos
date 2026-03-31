@@ -55,8 +55,8 @@
             
             <!-- Left Panel: Smart Queue -->
             <div class="panel panel-left flex-col">
-                <h2><i class="ph-bold ph-list-plus"></i> 1. Adicionar à Fila</h2>
-                <p class="subtitle">Cole o texto do Google Maps e enfileire vários contatos de uma vez.</p>
+                <h2><i class="ph-bold ph-list-plus"></i> 1. Nova Fila</h2>
+                <p class="subtitle">Cole o texto do Maps para começar.</p>
                 <textarea id="smartInput" placeholder="Ex: Priscila Gomes - Estética Avançada&#10;5,0 (64)&#10;Centro de beleza&#10;(22) 98104-8224..."></textarea>
                 <button id="queueBtn" class="btn btn-secondary">Extrair e Enfileirar <i class="ph-bold ph-download-simple"></i></button>
 
@@ -70,7 +70,7 @@
 
             <!-- Right Panel: Setup & Send -->
             <div class="panel panel-right">
-                <h2><i class="ph-bold ph-paper-plane-tilt"></i> 2. Disparo Rápido</h2>
+                <h2><i class="ph-bold ph-paper-plane-tilt"></i> 2. Enviar Mensagem</h2>
                 
                 <div class="active-prospect-card" id="activeProspectCard">
                     <!-- Form for the Prospect that is currently at the front of the queue -->
@@ -96,7 +96,7 @@
 
                     <div class="form-row">
                         <div class="form-group" style="flex:1;">
-                            <label>Link do Demo (Portfólio 50k)</label>
+                            <label>Qual modelo enviar?</label>
                             <select id="demoSelect">
                                 <optgroup label="Estética Avançada">
                                     <option value="https://pixelizeonline.github.io/demos/estetica/crislli/">Crislli (Premium Rosa)</option>
@@ -116,12 +116,12 @@
                             </select>
                         </div>
                         <div class="form-group" style="flex:1;">
-                            <label>Script (Copy High-Ticket)</label>
+                            <label>O que dizer agora?</label>
                             <select id="scriptSelect">
-                                <option value="auditoria">1. Auditoria (Problema Google)</option>
-                                <option value="msg2">2. Presença Online (Conversão)</option>
-                                <option value="envio_demo">3. Demo Ancorado (Solução)</option>
-                                <option value="followup">4. Follow-up 48h (Retomada)</option>
+                                <option value="auditoria">1. Abordagem (Dica de Google)</option>
+                                <option value="msg2">2. Mostrar Valor (Oportunidade)</option>
+                                <option value="envio_demo">3. Link da Demo (Exemplo)</option>
+                                <option value="followup">4. Acompanhamento (Gentil)</option>
                             </select>
                         </div>
                     </div>

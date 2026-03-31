@@ -155,13 +155,13 @@ function updatePreview() {
     let text = "";
 
     if (scriptType === 'auditoria') {
-        text = `${saudacao}, equipe ${prepDoDa} *${name}*, tudo bem?\n\nEstava analisando as buscas por ${niche} no Google e notei uma falha de conversão no perfil de vocês. O tráfego está indo para concorrentes porque o link atual direciona para um gargalo.\n\nGravei um vídeo rápido de 1 min mostrando onde está vazando dinheiro. Posso enviar o link do vídeo aqui?`;
+        text = `Olá, tudo bem? Vi o perfil da *${name}* no Google e notei um detalhe que pode estar fazendo vocês perderem alguns clientes para a concorrência. Posso te mandar uma sugestão rápida de como resolver isso?`;
     } else if (scriptType === 'msg2') {
-        text = `Para resolver isso, a grande maioria dos clientes novos vem do Google quando já estão decididos. E o detalhe é: quem aparece melhor estruturado lá com um ambiente de conversão, acaba sendo escolhido primeiro.\n\nNós desenvolvemos uma estrutura focada exatamente em resolver isso, com botão magnético de WhatsApp e velocidade máxima. Posso mandar nosso link modelo de teste pra você comparar?`;
+        text = `Muita gente hoje escolhe onde ir pelo Google, e quem passa mais confiança no primeiro clique leva o cliente. Nós criamos um modelo de página super rápido e moderno que foca exatamente em fazer a pessoa clicar no seu WhatsApp. Quer ver como ficaria para vocês?`;
     } else if (scriptType === 'envio_demo') {
-        text = `Aqui está o ambiente de conversão que nós desenvolvemos:\n${demoUrl}\n\nDiferente de links comuns, nós aplicamos um código de blindagem antifurto, tempo de resposta ultrarrápido e gatilhos de rolagem estéticos que prendem a atenção do lead.\n\nCompare a experiência de usar isso no celular com a da sua página atual. O que achou?`;
+        text = `Olha só como ficou esse modelo que eu separei:\n${demoUrl}\n\nA ideia é que ele carregue instantaneamente e seja muito mais bonito que um site comum. Abre aí no seu celular e me diz o que achou da experiência!`;
     } else if (scriptType === 'followup') {
-        text = `${saudacao}! Tudo bem? \n\nConseguiram dar uma olhadinha no vídeo/modelo que te mandei antes?\n\nQualquer dúvida sobre como isso ajuda e o impacto de fechamentos, estou por aqui!`;
+        text = `Oi! Passando só para saber se conseguiu ver o modelo que te mandei. Acha que faz sentido algo assim para a *${name}* hoje?`;
     }
 
     currentMessageText = text;
@@ -308,7 +308,7 @@ function renderCRM() {
                 </select>
             </td>
             <td>
-                <a href="https://wa.me/${entry.phone}" target="_blank" class="btn btn-outline btn-sm">Retomar</a>
+                <button onclick="resumeContact('${entry.id}')" class="btn btn-outline btn-sm">Retomar</button>
             </td>
         `;
         crmBody.appendChild(tr);
@@ -333,6 +333,36 @@ function renderCRM() {
 function saveCRM() {
     localStorage.setItem('prospect_crm_v3', JSON.stringify(crmData));
     renderCRM();
+}
+
+// Resumes a contact from CRM back into the active sender
+function resumeContact(id) {
+    const entry = crmData.find(x => x.id === id);
+    if (!entry) return;
+
+    // Load data into form
+    businessNameInput.value = entry.name;
+    whatsappInput.value = entry.phone;
+    
+    // Guess niche from name if possible (or default)
+    let niche = "clínica";
+    const nameLower = entry.name.toLowerCase();
+    if (nameLower.includes("salão") || nameLower.includes("studio")) niche = "salão";
+    else if (nameLower.includes("escritório") || nameLower.includes("advocacia")) niche = "escritório";
+    else if (nameLower.includes("odontologia") || nameLower.includes("odonto")) niche = "clínica odontológica";
+    businessNicheInput.value = niche;
+
+    // Scroll to panel
+    document.getElementById('activeProspectCard').scrollIntoView({ behavior: 'smooth' });
+    
+    // Pulse animation to show it's loaded
+    const card = document.getElementById('activeProspectCard');
+    card.classList.add('pulse-active');
+    setTimeout(() => {
+        card.classList.remove('pulse-active');
+    }, 2000);
+
+    updatePreview();
 }
 
 clearHistoryBtn.addEventListener('click', () => {
