@@ -154,7 +154,9 @@ function updatePreview() {
 
     let text = "";
 
-    if (scriptType === 'auditoria') {
+    if (scriptType === 'quebra_gelo') {
+        text = `Oi, tudo bem? Estava analisando o perfil da *${name}* no Google e identifiquei alguns pontos que estão fazendo vocês perderem clientes prontos pra agendar — principalmente para quem já trabalha melhor essa parte de conversão.\n\nEu montei um modelo pronto (já validado) que mostra exatamente como corrigir isso e aumentar o volume de mensagens no WhatsApp.\n\nPosso te mostrar agora o seu site já validado para que sua conversão no google aumente consideravelmente, melhorando seu posicionamento e aumentando o número de clientes que você terá no seu whatsapp? Te envio o link pra você ver como ficaria aplicado no seu caso.`;
+    } else if (scriptType === 'auditoria') {
         text = `Olá, tudo bem? Vi o perfil da *${name}* no Google e notei um detalhe que pode estar fazendo vocês perderem alguns clientes para a concorrência. Posso te mandar uma sugestão rápida de como resolver isso?`;
     } else if (scriptType === 'msg2') {
         text = `Muita gente hoje escolhe onde ir pelo Google, e quem passa mais confiança no primeiro clique leva o cliente. Nós criamos um modelo de página super rápido e moderno que foca exatamente em fazer a pessoa clicar no seu WhatsApp. Quer ver como ficaria para vocês?`;
