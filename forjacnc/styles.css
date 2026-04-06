@@ -116,6 +116,11 @@ p { font-size: 1.1rem; color: var(--text-muted); }
     align-items: center;
 }
 
+/* Logo Img Styling */
+.logo { display: flex; align-items: center; }
+.logo-img { height: 60px; width: auto; object-fit: contain; }
+.footer-logo { height: 80px; margin-bottom: 20px; }
+
 .logo-text { font-size: 1.5rem; font-weight: 900; color: #FFF; }
 .logo-text span { color: var(--primary); }
 
