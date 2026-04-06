@@ -1,6 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     const navbar = document.getElementById('navbar');
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    const mobileMenuOpen = document.getElementById('mobileMenuOpen');
+    const mobileMenuClose = document.getElementById('mobileMenuClose');
+    const mobileLinks = document.querySelectorAll('.mobile-nav-links a');
     
     // Navbar Scroll Effect
     window.addEventListener('scroll', () => {
@@ -9,6 +12,20 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             navbar.classList.remove('scrolled');
         }
+    });
+
+    // Mobile Menu Toggle
+    const toggleMenu = (isOpen) => {
+        mobileNav.classList.toggle('active', isOpen);
+        document.body.style.overflow = isOpen ? 'hidden' : 'auto';
+    };
+
+    mobileMenuOpen.addEventListener('click', () => toggleMenu(true));
+    mobileMenuClose.addEventListener('click', () => toggleMenu(false));
+
+    // Close menu when a link is clicked
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => toggleMenu(false));
     });
 
     // Simple AOS Implementation (Intersection Observer)
@@ -21,8 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('aos-animate');
-                // Optional: stop observing after animation
-                // observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
@@ -33,23 +48,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // Smooth Scroll for local links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
             const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: 'smooth'
-                });
+            if (targetId.startsWith('#') && targetId.length > 1) {
+                e.preventDefault();
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
             }
         });
-    });
-
-    // Mobile Menu Mockup (for future expansion)
-    mobileMenuBtn.addEventListener('click', () => {
-        // Toggle mobile menu visibility logic here if needed
-        alert('Menu Mobile em desenvolvimento. Use a navegação desktop ou role a página.');
     });
 });
