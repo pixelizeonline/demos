@@ -118,11 +118,18 @@ p { font-size: 1.1rem; color: var(--text-muted); }
 
 /* Logo Img Styling */
 .logo { display: flex; align-items: center; }
-.logo-img { height: 60px; width: auto; object-fit: contain; }
-.footer-logo { height: 80px; margin-bottom: 20px; }
+.logo-link { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.logo-img { height: 45px; width: auto; object-fit: contain; }
+.footer-logo-wrap { gap: 15px; margin-bottom: 20px; }
 
-.logo-text { font-size: 1.5rem; font-weight: 900; color: #FFF; }
+.logo-text { font-size: 1.3rem; font-weight: 900; color: #FFF; white-space: nowrap; }
 .logo-text span { color: var(--primary); }
+
+@media (max-width: 480px) {
+    .logo-img { height: 35px; }
+    .logo-text { font-size: 1.1rem; }
+    .logo-link { gap: 8px; }
+}
 
 .nav-links {
     display: flex;
