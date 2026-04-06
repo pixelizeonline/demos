@@ -410,3 +410,37 @@ tr.row-overdue td:first-child {
     .metrics-container { grid-template-columns: repeat(2, 1fr); }
     .top-panels { grid-template-columns: 1fr; }
 }
+
+/* --- Toast Notifications --- */
+.toast {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: #1a1a1a;
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    border-left: 4px solid var(--secondary);
+    animation: slideIn 0.3s ease-out;
+    font-weight: 500;
+}
+
+.toast-warning {
+    border-left-color: #ffcc00;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+.toast.fade-out {
+    opacity: 0;
+    transform: translateX(20px);
+    transition: all 0.5s ease;
+}

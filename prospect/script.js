@@ -31,51 +31,102 @@ const clearHistoryBtn = document.getElementById('clearHistoryBtn');
 const objectionBtns = document.querySelectorAll('.btn-objection');
 
 
+// --- Helper: Success Toast ---
+function showToast(message, type = 'success') {
+    const toast = document.createElement('div');
+    toast.className = `toast toast-${type}`;
+    toast.innerHTML = `<i class="ph-bold ph-info"></i> ${message}`;
+    document.body.appendChild(toast);
+    setTimeout(() => {
+        toast.classList.add('fade-out');
+        setTimeout(() => toast.remove(), 500);
+    }, 3000);
+}
+
 // --- 1. Smart Extraction Logic ---
-function extractData(rawText) {
-    const lines = rawText.split('\n').map(l => l.trim()).filter(l => l.length > 0);
-    let name = 'Negócio sem Nome';
-    let rating = '5,0';
-    let phone = '';
+function extractDataBulk(rawText) {
+    // Split by markers like "Rotas" or "Website" but preserve the separators for better card logic
+    // We split by a pattern that marks the end of a card or the start of a new one
+    // In G-Maps text, "Rotas" is almost always the last text in a listing card.
+    const blocks = rawText.split(/Rotas/i).filter(b => b.trim().length > 5);
+    const prospects = [];
 
-    if (lines.length > 0) name = lines[0];
-    
-    const ratingMatch = rawText.match(/(\d[.,]\d)\s*\(\d+\)/);
-    if (ratingMatch) rating = ratingMatch[1];
+    blocks.forEach(block => {
+        const lines = block.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+        if (lines.length < 1) return;
 
-    const phoneMatch = rawText.match(/(?:\+?55\s?)?(?:\(?0?[1-9]{2}\)?)\s?(?:9\d{4}|\d{4})[- ]?\d{4}/);
-    if (phoneMatch) {
-        let rawPhone = phoneMatch[0].replace(/\D/g, '');
-        if (rawPhone.startsWith('00')) rawPhone = rawPhone.substring(2);
-        if (rawPhone.startsWith('0') && rawPhone.length > 9) rawPhone = rawPhone.substring(1);
-        if (!rawPhone.startsWith('55') && (rawPhone.length === 10 || rawPhone.length === 11)) {
-            rawPhone = '55' + rawPhone;
+        let name = 'Negócio sem Nome';
+        let rating = '5,0';
+        let phone = '';
+        let hasWebsite = block.toLowerCase().includes('website');
+
+        // Look for the rating pattern: 5,0(198)
+        const ratingMatch = block.match(/(\d[.,]\d)\s*\(\d+\)/);
+        if (ratingMatch) {
+            rating = ratingMatch[1];
+            // Name is usually the line right BEFORE the rating line
+            const ratingLineIndex = lines.findIndex(l => l.includes(ratingMatch[0]));
+            if (ratingLineIndex > 0) {
+                // If the previous line is just a quote or button, go back one more
+                let nameIdx = ratingLineIndex - 1;
+                while (nameIdx >= 0 && (lines[nameIdx].startsWith('"') || lines[nameIdx] === 'Compartilhar')) {
+                    nameIdx--;
+                }
+                if (nameIdx >= 0) name = lines[nameIdx];
+            } else {
+                name = lines[0];
+            }
+        } else {
+            name = lines[0]; // fallback
         }
-        phone = rawPhone;
-    }
 
-    // Attempt to guess niche based on name
-    let niche = "clínica"; // default
-    const nameLower = name.toLowerCase();
-    if (nameLower.includes("salão") || nameLower.includes("studio")) niche = "salão";
-    else if (nameLower.includes("escritório") || nameLower.includes("advocacia")) niche = "escritório";
-    else if (nameLower.includes("odontologia") || nameLower.includes("odonto")) niche = "clínica odontológica";
+        // Phone Match: Brazilian formats
+        const phoneMatch = block.match(/(?:\+?55\s?)?(?:\(?0?[1-9]{2}\)?)\s?(?:9\d{4}|\d{4})[- ]?\d{4}/);
+        if (phoneMatch) {
+            let rawPhone = phoneMatch[0].replace(/\D/g, '');
+            if (rawPhone.startsWith('00')) rawPhone = rawPhone.substring(2);
+            if (rawPhone.startsWith('0') && rawPhone.length > 9) rawPhone = rawPhone.substring(1);
+            if (!rawPhone.startsWith('55') && (rawPhone.length === 10 || rawPhone.length === 11)) {
+                rawPhone = '55' + rawPhone;
+            }
+            phone = rawPhone;
+        }
 
-    return { id: Date.now().toString(), name, rating, phone, niche };
+        // Logic check: only add if it has phone (user request)
+        if (!phone) return;
+
+        // Check if already in queue or CRM
+        const isDuplicate = queueData.some(q => q.phone === phone) || crmData.some(c => c.phone === phone);
+        if (isDuplicate) return;
+
+        // Guess niche
+        let niche = "clínica";
+        const nameLower = name.toLowerCase();
+        if (nameLower.includes("salão") || nameLower.includes("studio") || nameLower.includes("beleza")) niche = "salão";
+        else if (nameLower.includes("odontologia") || nameLower.includes("odonto")) niche = "clínica odontológica";
+        else if (nameLower.includes("fisioterapia") || nameLower.includes("fisio")) niche = "clínica de fisioterapia";
+        
+        prospects.push({ id: Date.now() + Math.random().toString(), name, rating, phone, niche, hasWebsite });
+    });
+
+    return prospects;
 }
 
 // --- 2. Queue Management ---
 queueBtn.addEventListener('click', () => {
     const raw = smartInput.value;
-    if (!raw) return;
+    if (!raw.trim()) return;
     
-    // Split by deep spaces (if user pasted multiple blocks), though usually it's one by one
-    // We will just process the whole block as one Prospect
-    const extracted = extractData(raw);
+    const extractedList = extractDataBulk(raw);
     
-    queueData.push(extracted);
-    saveQueue();
-    smartInput.value = ''; // clear for next paste
+    if (extractedList.length === 0) {
+        showToast("Nenhum novo prospecto com telefone encontrado.", "warning");
+    } else {
+        queueData.push(...extractedList);
+        saveQueue();
+        smartInput.value = ''; // clear
+        showToast(`${extractedList.length} prospects adicionados à fila!`);
+    }
 });
 
 function saveQueue() {
@@ -135,6 +186,7 @@ skipBtn.addEventListener('click', () => {
 
 // --- 3. Message Template Builder ---
 function updatePreview() {
+    const active = queueData[0];
     const name = businessNameInput.value || "[Nome]";
     let niche = businessNicheInput.value.trim().toLowerCase() || "negócio";
     const rating = businessRatingInput.value || "5,0";
@@ -155,7 +207,11 @@ function updatePreview() {
     let text = "";
 
     if (scriptType === 'quebra_gelo') {
-        text = `Oi, tudo bem? Estava analisando o perfil da *${name}* no Google e identifiquei alguns pontos que estão fazendo vocês perderem clientes prontos pra agendar — principalmente para quem já trabalha melhor essa parte de conversão.\n\nEu montei um modelo pronto (já validado) que mostra exatamente como corrigir isso e aumentar o volume de mensagens no WhatsApp.\n\nPosso te mostrar agora o seu site já validado para que sua conversão no google aumente consideravelmente, melhorando seu posicionamento e aumentando o número de clientes que você terá no seu whatsapp? Te envio o link pra você ver como ficaria aplicado no seu caso.`;
+        const websiteContext = active && active.hasWebsite 
+            ? "Vi que vocês já têm um site, mas ele pode estar limitando o potencial de conversão do Google — a velocidade e a estrutura de vendas fazem toda a diferença." 
+            : "Senti falta de uma estrutura de conversão mais direta no Google. Isso acaba fazendo vocês perderem clientes prontos pra agendar para a concorrência.";
+
+        text = `Oi, tudo bem? Estava analisando o perfil da *${name}* no Google e identifiquei alguns pontos que estão fazendo vocês perderem clientes. ${websiteContext}\n\nEu montei um modelo pronto (já validado) que mostra exatamente como corrigir isso e aumentar o volume de mensagens no WhatsApp.\n\nPosso te mostrar agora o seu site já validado para que sua conversão no google aumente consideravelmente? Te envio o link pra você ver como ficaria aplicado no seu caso.`;
     } else if (scriptType === 'auditoria') {
         text = `Olá, tudo bem? Vi o perfil da *${name}* no Google e notei um detalhe que pode estar fazendo vocês perderem alguns clientes para a concorrência. Posso te mandar uma sugestão rápida de como resolver isso?`;
     } else if (scriptType === 'msg2') {
